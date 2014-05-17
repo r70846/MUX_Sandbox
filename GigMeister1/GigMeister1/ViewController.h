@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 {
-    
+    IBOutlet UITableView *mainTableView;    //Table view reference
     NSMutableArray *gigDateArray;          //Reference to main array that will hold my GigDate objects
 }
 

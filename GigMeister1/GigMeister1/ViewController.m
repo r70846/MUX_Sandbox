@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DetailViewController.h"
 
 @interface ViewController ()
 
@@ -57,6 +58,43 @@
 }
 
 
+//Called when we go to the detail view
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    DetailViewController *detailViewController = segue.destinationViewController;
+    
+    if (detailViewController != nil)
+    {
+        
+        //Cast the "sender" as a TableView Cell
+        UITableViewCell *cell = (UITableViewCell*)sender;
+        NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
+        
+        //detailViewController.gigDateString = @"My Gig Date";
+        detailViewController.gigDateString = [gigDateArray objectAtIndex:indexPath.row];
+        
+    }
+    
+    
+    //GigDateDetail is segue name
+    /*
+    DetailViewController *detailViewController = segue.destinationViewController;
+    
+    if (detailViewController != nil)
+    {
+        //Cast the "sender" as a TableView Cell
+        UITableViewCell *cell = (UITableViewCell*)sender;
+        NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
+        
+        //Get Band Mate object from the array based on the item in the tableview we clicked on
+        BandMateClass *currentMusician = [musicianArray objectAtIndex:indexPath.row];
+        
+        //Set the currentMusician property in detail view to the chosen one
+        detailViewController.currentMusician = currentMusician;
+    }
+    */
+}
 /////////////////////////////
 
 - (void)viewDidLoad
