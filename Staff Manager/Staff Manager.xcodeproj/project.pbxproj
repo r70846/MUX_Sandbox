@@ -22,6 +22,8 @@
 		6005FBE71927AB97001A6CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6005FBE51927AB97001A6CDC /* InfoPlist.strings */; };
 		6005FBE91927AB97001A6CDC /* Staff_ManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6005FBE81927AB97001A6CDC /* Staff_ManagerTests.m */; };
 		6005FBF31927ABFA001A6CDC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6005FBF21927ABFA001A6CDC /* CoreData.framework */; };
+		601AC4FB1927CDE000AEF8B0 /* RolesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 601AC4FA1927CDE000AEF8B0 /* RolesTVC.m */; };
+		601AC4FE1927CE1300AEF8B0 /* AddRoleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 601AC4FD1927CE1300AEF8B0 /* AddRoleTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		6005FBE61927AB97001A6CDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6005FBE81927AB97001A6CDC /* Staff_ManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Staff_ManagerTests.m; sourceTree = "<group>"; };
 		6005FBF21927ABFA001A6CDC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		601AC4F91927CDE000AEF8B0 /* RolesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RolesTVC.h; sourceTree = "<group>"; };
+		601AC4FA1927CDE000AEF8B0 /* RolesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RolesTVC.m; sourceTree = "<group>"; };
+		601AC4FC1927CE1300AEF8B0 /* AddRoleTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddRoleTVC.h; sourceTree = "<group>"; };
+		601AC4FD1927CE1300AEF8B0 /* AddRoleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRoleTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,10 @@
 				6005FBCC1927AB97001A6CDC /* AppDelegate.h */,
 				6005FBCD1927AB97001A6CDC /* AppDelegate.m */,
 				6005FBCF1927AB97001A6CDC /* Main.storyboard */,
+				601AC4F91927CDE000AEF8B0 /* RolesTVC.h */,
+				601AC4FA1927CDE000AEF8B0 /* RolesTVC.m */,
+				601AC4FC1927CE1300AEF8B0 /* AddRoleTVC.h */,
+				601AC4FD1927CE1300AEF8B0 /* AddRoleTVC.m */,
 				6005FBD21927AB97001A6CDC /* ViewController.h */,
 				6005FBD31927AB97001A6CDC /* ViewController.m */,
 				6005FBD51927AB97001A6CDC /* Images.xcassets */,
@@ -256,6 +266,8 @@
 				6005FBD41927AB97001A6CDC /* ViewController.m in Sources */,
 				6005FBCE1927AB97001A6CDC /* AppDelegate.m in Sources */,
 				6005FBCA1927AB97001A6CDC /* main.m in Sources */,
+				601AC4FB1927CDE000AEF8B0 /* RolesTVC.m in Sources */,
+				601AC4FE1927CE1300AEF8B0 /* AddRoleTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +476,7 @@
 				6005FBEE1927AB97001A6CDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6005FBEF1927AB97001A6CDC /* Build configuration list for PBXNativeTarget "Staff ManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +485,7 @@
 				6005FBF11927AB97001A6CDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
