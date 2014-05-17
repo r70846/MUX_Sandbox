@@ -8,11 +8,70 @@
 
 #import "RolesTVC.h"
 
+/*
 @interface RolesTVC ()
 
 @end
-
+*/
+ 
+ 
 @implementation RolesTVC
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Roles Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
+/*
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
+*/
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"Add Role Segue"])
+    {
+        NSLog(@"Setting RolesTVC as a delegate of AddRolesTVC");
+        
+        AddRoleTVC *addRoleTVC = segue.destinationViewController;
+        addRoleTVC.delegate = self;
+    }
+}
+
+
+-(void)theSaveButtonOnTheAddRoleTVCWasTapped:(AddRoleTVC *)controller
+{
+    //do something here like refreshing the table or whatever
+    
+    //close the delegated view
+    [controller.navigationController popViewControllerAnimated:YES];
+    
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -56,15 +115,6 @@
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
 
 /*
 // Override to support conditional editing of the table view.

@@ -8,12 +8,27 @@
 
 #import "AddRoleTVC.h"
 
+/*
 @interface AddRoleTVC ()
 
 @end
+ 
+ */
 
 @implementation AddRoleTVC
-//@synthesize delegate;
+@synthesize delegate;
+
+-(void)viewDidUnload
+{
+    [super viewDidUnload];
+}
+
+-(IBAction)save:(id)sender
+{
+    NSLog(@"Telling the AddRoleTVC Delegate that Save was tapped on the AddRoleTVC");
+    [self.delegate theSaveButtonOnTheAddRoleTVCWasTapped:self];
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,14 +60,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+    //#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+    //#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
 }

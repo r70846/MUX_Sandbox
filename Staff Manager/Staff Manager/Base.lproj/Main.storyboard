@@ -30,7 +30,7 @@
                     <navigationItem key="navigationItem" title="Roles" id="6xx-pr-Zpy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="caA-sX-82B">
                             <connections>
-                                <segue destination="iSR-f1-Oyl" kind="push" id="3B0-8o-PG4"/>
+                                <segue destination="iSR-f1-Oyl" kind="push" identifier="Add Role Segue" id="3B0-8o-PG4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -75,7 +75,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Role" id="EWD-9W-3f0">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="vpT-2F-Fei"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="vpT-2F-Fei">
+                            <connections>
+                                <action selector="save:" destination="iSR-f1-Oyl" id="BVm-Vk-7ry"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhg-FH-sZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
