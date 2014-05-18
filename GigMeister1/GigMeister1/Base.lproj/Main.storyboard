@@ -47,6 +47,7 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.72994080549999996" green="0.82560629900000004" blue="0.88990319289999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="cellImageView" destination="tbh-KT-o9p" id="SdT-mI-Qih"/>
                                             <outlet property="dateLabel" destination="Whj-oN-t5H" id="VlY-IM-ABD"/>

@@ -21,34 +21,8 @@
 
 - (void)viewDidLoad
 {
-    
-////////////////////////////////////
-    
-    NSDate *dateToday = [NSDate date];
-    
-    
-
-    
-    GigDateClass *gigDate1 = [[GigDateClass alloc] init];
-    gigDate1.status = @"Open";
-    gigDate1.notes = @"";
-    gigDate1.date = dateToday;
-    gigDate1.flag = [UIImage imageNamed:@"clear25.png"];
-    
-    GigDateClass *gigDate2 = [[GigDateClass alloc] init];
-    gigDate2.status = @"Open";
-    gigDate2.notes = @"";
-    gigDate2.date = dateToday;
-    gigDate2.flag = [UIImage imageNamed:@"grey25.png"];
-    
-    GigDateClass *gigDate3 = [[GigDateClass alloc] init];
-    gigDate3.status = @"Open";
-    gigDate3.notes = @"";
-    gigDate3.date = dateToday;
-    gigDate3.flag = [UIImage imageNamed:@"green25.png"];
-    
-    gigDateArray = [[NSMutableArray alloc] initWithObjects: gigDate1, gigDate2, gigDate3, nil];
-    
+    //Call method to load data into array
+    [self loadGigDates];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -131,37 +105,48 @@
         //Cast the "sender" as a TableView Cell
         UITableViewCell *cell = (UITableViewCell*)sender;
         NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
-        
-        //detailViewController.gigDateString = @"My Gig Date";
-        //detailViewController.gigDateString = [gigDateArray objectAtIndex:indexPath.row];
 
+        //Get GigDate object from the array based on the item in the tableview we clicked on
         GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+        
+        //Set the currentGigDate property in detail view to the chosen one
         detailViewController.currentGigDate = currentGigDate;
         
     }
     
-    
-    //GigDateDetail is segue name
-    /*
-    DetailViewController *detailViewController = segue.destinationViewController;
-    
-    if (detailViewController != nil)
-    {
-        //Cast the "sender" as a TableView Cell
-        UITableViewCell *cell = (UITableViewCell*)sender;
-        NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
-        
-        //Get Band Mate object from the array based on the item in the tableview we clicked on
-        BandMateClass *currentMusician = [musicianArray objectAtIndex:indexPath.row];
-        
-        //Set the currentMusician property in detail view to the chosen one
-        detailViewController.currentMusician = currentMusician;
-    }
-    */
 }
-/////////////////////////////
 
+//Function to load hard coded data into array of BandMate objects
+- (void)loadGigDates
+{
+    //Built mutable array to hold gig dates (GigDateClass objects)
+    gigDateArray = [[NSMutableArray alloc] init];
+    
+    
+    //Get todays date
+    NSDate *oDate = [NSDate date];
 
+    //Create component to iterated the date
+    NSCalendar *oCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = 1;
+    
+    
+    //Load Array with GigDate Objects
+    for (int x=0; x < 10 ; x++)
+    {
+        //Create temporary GigDate object to load array
+        GigDateClass *oTemp = [[GigDateClass alloc] init];
+        oTemp.status = @"Open";
+        oTemp.notes = @"";
+        oTemp.date = oDate;
+        oTemp.flag = [UIImage imageNamed:@"white25.png"];
+        [gigDateArray addObject:oTemp];
+        
+        oDate = [oCalendar dateByAddingComponents:dayComponent toDate:oDate options:0];
+    }
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
