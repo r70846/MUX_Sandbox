@@ -12,8 +12,12 @@
 {
     
 }
-
+@property int index;
 @property (nonatomic, strong)NSString *status;
+@property (nonatomic, strong)NSString *venue;
+@property (nonatomic, strong)NSString *address;
+@property (nonatomic, strong)NSString *contact;
+@property (nonatomic, strong)NSString *phone;
 @property (nonatomic, strong)NSString *notes;
 @property (nonatomic, strong)NSDate *date;
 @property (nonatomic, strong)UIImage *flag;

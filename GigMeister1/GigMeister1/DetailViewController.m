@@ -51,18 +51,59 @@
     //Build the date into a string based on my day format
     NSString *dateDate = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate: self.currentGigDate.date]];
     
-    //Fill UI elements with data specific to object that was chosen from he table view
+    //Fill label elements with data specific to object that was chosen from he table view
     gigDayLabel.text = dateDay;
     gigDateLabel.text = dateDate;
     
-    
-    //instLabel.text = self.currentMusician.instrument;
-    //phoneLabel.text = self.currentMusician.phone;
-    //emailLabel.text = self.currentMusician.email;
-    //notesLabel.text = self.currentMusician.notes;
+    //Fill Text Fileds
+    venueName.text = self.currentGigDate.venue;
+    venueAddress.text = self.currentGigDate.address;
+    contactName.text = self.currentGigDate.contact;
+    contactPhone.text = self.currentGigDate.phone;
+
     //detailImage.image = self.currentMusician.instImage;
     
     [super viewWillAppear:(BOOL)animated];
+}
+
+-(IBAction)onClick:(id)sender
+{
+    UIButton *btn = sender;
+    if(btn.tag == 1) //Edit Button
+    {
+        NSLog(@"Button WAS the edit button");
+        
+        venueName.enabled = true;
+        venueName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+        
+        venueAddress.enabled = true;
+        venueAddress.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+        
+        contactName.enabled = true;
+        contactName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+        
+        contactPhone.enabled = true;
+        contactPhone.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+        
+        //venueName.userInteractionEnabled = true;
+        
+        
+    }
+     else if (btn.tag == 2) //Save Button
+    {
+        self.currentGigDate.status = @"Tenative";
+        self.currentGigDate.venue = venueName.text;
+        self.currentGigDate.address = venueAddress.text;
+        self.currentGigDate.contact = contactName.text;
+        self.currentGigDate.phone = contactPhone.text;
+        self.currentGigDate.notes = @"";
+        self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
+        
+        NSLog(@"Button was the Save button");
+        
+    }
+
+    
 }
 
 

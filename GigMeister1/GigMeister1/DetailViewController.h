@@ -15,7 +15,19 @@
     IBOutlet UILabel *gigDayLabel;
     IBOutlet UILabel *gigDateLabel;
     
+    IBOutlet UITextField *venueName;
+    IBOutlet UITextField *venueAddress;
+    
+    IBOutlet UITextField *contactName;
+    IBOutlet UITextField *contactPhone;
+    
+    IBOutlet UIButton *btnEdit;
+    IBOutlet UIButton *btnSave;
+    
 }
+
+
+-(IBAction)onClick:(id)sender;
 
 
 //@property (nonatomic, strong)NSString *gigDateString;

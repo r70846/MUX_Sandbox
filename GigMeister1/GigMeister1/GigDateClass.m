@@ -9,7 +9,7 @@
 #import "GigDateClass.h"
 
 @implementation GigDateClass
-@synthesize status, notes, date, flag;
+@synthesize index, status, venue, address, contact, phone, notes, date, flag;
 
 
 @end

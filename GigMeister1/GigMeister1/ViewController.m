@@ -119,6 +119,9 @@
 //Function to load hard coded data into array of BandMate objects
 - (void)loadGigDates
 {
+    
+    //NSLog(@"Rebuilding objects");
+    
     //Built mutable array to hold gig dates (GigDateClass objects)
     gigDateArray = [[NSMutableArray alloc] init];
     
@@ -137,7 +140,12 @@
     {
         //Create temporary GigDate object to load array
         GigDateClass *oTemp = [[GigDateClass alloc] init];
+        oTemp.index = x;
         oTemp.status = @"Open";
+        oTemp.venue = @"";
+        oTemp.address = @"";
+        oTemp.contact = @"";
+        oTemp.phone = @"";
         oTemp.notes = @"";
         oTemp.date = oDate;
         oTemp.flag = [UIImage imageNamed:@"white25.png"];
@@ -146,6 +154,22 @@
         oDate = [oCalendar dateByAddingComponents:dayComponent toDate:oDate options:0];
     }
     
+}
+
+-(IBAction)done:(UIStoryboardSegue*)segue
+{
+    
+    DetailViewController *detailView = segue.sourceViewController;
+    GigDateClass *currentGigDate = detailView.currentGigDate;
+    gigDateArray[currentGigDate.index] = currentGigDate;
+    
+    
+    /*
+    AddAWishViewController *addAWishVC = segue.sourceViewController;
+    [wishList appendString:addAWishVC.strWish];
+    [wishList appendString:@"\n\n"];
+    textView.text = wishList;
+    */
 }
 
 - (void)didReceiveMemoryWarning
