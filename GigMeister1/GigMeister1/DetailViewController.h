@@ -12,6 +12,7 @@
 @interface DetailViewController : UIViewController
 {
     //Set up data outlets in detail view
+    IBOutlet UILabel *gigDayLabel;
     IBOutlet UILabel *gigDateLabel;
     
 }

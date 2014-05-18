@@ -31,9 +31,29 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    //Create format for day
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+    if (dayFormatter != nil)
+    {
+        [dayFormatter setDateFormat:@"EEEE"];
+    }
     
-    //Fill UI elements with data specific to the BandMateClass object that was chosen from he table view
-    gigDateLabel.text = self.currentGigDate.status;
+    //Build the date into a string based on my day format
+    NSString *dateDay = [[NSString alloc] initWithFormat:@"%@", [dayFormatter stringFromDate: self.currentGigDate.date]];
+    
+    //Create format for date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    if (dateFormatter != nil)
+    {
+        [dateFormatter setDateFormat:@"MMM d, yyyy"];
+    }
+    
+    //Build the date into a string based on my day format
+    NSString *dateDate = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate: self.currentGigDate.date]];
+    
+    //Fill UI elements with data specific to object that was chosen from he table view
+    gigDayLabel.text = dateDay;
+    gigDateLabel.text = dateDate;
     
     
     //instLabel.text = self.currentMusician.instrument;
