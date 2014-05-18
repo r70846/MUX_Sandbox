@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "GigDateClass.h"
+#import "CustomCell.h"
 
 @interface ViewController ()
 
@@ -16,11 +18,40 @@
 @implementation ViewController
 
 
+
+- (void)viewDidLoad
+{
+    GigDateClass *gigDate1 = [[GigDateClass alloc] init];
+    gigDate1.status = @"Open";
+    gigDate1.notes = @"";
+    //gigDate1.date = Now();
+    gigDate1.flag = [UIImage imageNamed:@"clear25.png"];
+    
+    GigDateClass *gigDate2 = [[GigDateClass alloc] init];
+    gigDate2.status = @"Open";
+    gigDate2.notes = @"";
+    //gigDate2.date = Now();
+    gigDate2.flag = [UIImage imageNamed:@"grey25.png"];
+    
+    GigDateClass *gigDate3 = [[GigDateClass alloc] init];
+    gigDate3.status = @"Open";
+    gigDate3.notes = @"";
+    //gigDate3.date = Now();
+    gigDate3.flag = [UIImage imageNamed:@"green25.png"];
+    
+    gigDateArray = [[NSMutableArray alloc] initWithObjects: gigDate1, gigDate2, gigDate3, nil];
+    
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
 //Number of rows in table will equal the number of BandMateClass objects in my data array
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [musicianArray count];
-    return 3;
+    
+    return [gigDateArray count];
 }
 
 //Set each custom cell to reflect data from the same index of my BandMateClass objects array
@@ -28,7 +59,7 @@
 {
     
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     
 
     
@@ -47,7 +78,11 @@
      */
     if (cell != nil)
     {
-        cell.textLabel.text = [gigDateArray objectAtIndex:indexPath.row];
+        
+        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+        
+        [cell refreshCellWithInfo:currentGigDate.status dateString:currentGigDate.status cellImage:currentGigDate.flag];
+
         
     }
 
@@ -72,7 +107,10 @@
         NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
         
         //detailViewController.gigDateString = @"My Gig Date";
-        detailViewController.gigDateString = [gigDateArray objectAtIndex:indexPath.row];
+        //detailViewController.gigDateString = [gigDateArray objectAtIndex:indexPath.row];
+
+        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+        detailViewController.currentGigDate = currentGigDate;
         
     }
     
@@ -97,16 +135,7 @@
 }
 /////////////////////////////
 
-- (void)viewDidLoad
-{
-    
-    
-    gigDateArray = [[NSMutableArray alloc] initWithObjects:@"date1", @"date2", @"date3", nil];
-    
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
+
 
 - (void)didReceiveMemoryWarning
 {

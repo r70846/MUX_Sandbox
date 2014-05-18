@@ -33,7 +33,7 @@
 {
     
     //Fill UI elements with data specific to the BandMateClass object that was chosen from he table view
-    gigDateLabel.text = self.gigDateString;
+    gigDateLabel.text = self.currentGigDate.status;
     
     
     //instLabel.text = self.currentMusician.instrument;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GigDateClass.h"
 
 @interface DetailViewController : UIViewController
 {
@@ -16,7 +17,7 @@
 }
 
 
-@property (nonatomic, strong)NSString *gigDateString;
-
+//@property (nonatomic, strong)NSString *gigDateString;
+@property (nonatomic, strong)GigDateClass *currentGigDate;
 
 @end
