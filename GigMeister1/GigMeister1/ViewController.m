@@ -21,22 +21,30 @@
 
 - (void)viewDidLoad
 {
+    
+////////////////////////////////////
+    
+    NSDate *dateToday = [NSDate date];
+    
+    
+
+    
     GigDateClass *gigDate1 = [[GigDateClass alloc] init];
     gigDate1.status = @"Open";
     gigDate1.notes = @"";
-    //gigDate1.date = Now();
+    gigDate1.date = dateToday;
     gigDate1.flag = [UIImage imageNamed:@"clear25.png"];
     
     GigDateClass *gigDate2 = [[GigDateClass alloc] init];
     gigDate2.status = @"Open";
     gigDate2.notes = @"";
-    //gigDate2.date = Now();
+    gigDate2.date = dateToday;
     gigDate2.flag = [UIImage imageNamed:@"grey25.png"];
     
     GigDateClass *gigDate3 = [[GigDateClass alloc] init];
     gigDate3.status = @"Open";
     gigDate3.notes = @"";
-    //gigDate3.date = Now();
+    gigDate3.date = dateToday;
     gigDate3.flag = [UIImage imageNamed:@"green25.png"];
     
     gigDateArray = [[NSMutableArray alloc] initWithObjects: gigDate1, gigDate2, gigDate3, nil];
@@ -62,6 +70,36 @@
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     
 
+    if (cell != nil)
+    {
+        
+        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+ 
+        
+        //Create format for day
+        NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+        if (dayFormatter != nil)
+        {
+            [dayFormatter setDateFormat:@"EEE"];
+        }
+        
+        //Build the date into a string based on my day format
+        NSString *dateDay = [[NSString alloc] initWithFormat:@"%@", [dayFormatter stringFromDate: currentGigDate.date]];
+        
+        //Create format for date
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        if (dateFormatter != nil)
+        {
+            [dateFormatter setDateFormat:@"M/dd/YY"];
+        }
+        
+        //Build the date into a string based on my day format
+        NSString *dateDate = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate: currentGigDate.date]];
+        
+  
+        [cell refreshCellWithInfo:dateDay dateString:dateDate cellImage:currentGigDate.flag];
+
+    }
     
     /*
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicianCell"];
@@ -74,19 +112,7 @@
         
     }
     return cell;
-     
-     */
-    if (cell != nil)
-    {
-        
-        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
-        
-        [cell refreshCellWithInfo:currentGigDate.status dateString:currentGigDate.status cellImage:currentGigDate.flag];
-
-        
-    }
-
-    
+    */
     
     return cell;
     
