@@ -97,7 +97,7 @@
         self.currentGigDate.contact = contactName.text;
         self.currentGigDate.phone = contactPhone.text;
         self.currentGigDate.notes = @"";
-        self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
+        self.currentGigDate.flag = [UIImage imageNamed:@"green25.png"];
         
         NSLog(@"Button was the Save button");
         

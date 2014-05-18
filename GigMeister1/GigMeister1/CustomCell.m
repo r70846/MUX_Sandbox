@@ -14,7 +14,12 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         // Initialization code
+        
+        //Doesn't seem to be doing anything
+        self.backgroundColor = [UIColor colorWithRed:(230/255.0) green:(240/255.0) blue:(250/255.0) alpha:1];
+        
     }
     return self;
 }
@@ -28,11 +33,12 @@
 
 
 //Refresh data in custom cell
--(void)refreshCellWithInfo:(NSString*)dayString dateString:(NSString*)dateString cellImage:(UIImage*)cellImage
+-(void)refreshCellWithInfo:(NSString*)dayString dateString:(NSString*)dateString eventString:(NSString*)eventString cellImage:(UIImage*)cellImage
 {
     //Fill UI elements in custom cell
     dayLabel.text = dayString;
     dateLabel.text = dateString;
+    eventLabel.text = eventString;
     cellImageView.image = cellImage;
     
 }

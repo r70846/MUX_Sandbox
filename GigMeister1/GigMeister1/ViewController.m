@@ -36,7 +36,7 @@
     return [gigDateArray count];
 }
 
-//Set each custom cell to reflect data from the same index of my BandMateClass objects array
+//Set each custom cell to reflect data from the same index of my GigDateClass objects array
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -71,7 +71,7 @@
         NSString *dateDate = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate: currentGigDate.date]];
         
   
-        [cell refreshCellWithInfo:dateDay dateString:dateDate cellImage:currentGigDate.flag];
+        [cell refreshCellWithInfo:dateDay dateString:dateDate eventString:currentGigDate.venue cellImage:currentGigDate.flag];
 
     }
     
@@ -164,12 +164,20 @@
     gigDateArray[currentGigDate.index] = currentGigDate;
     
     
+    NSLog(@"%@", currentGigDate.venue);
+    
+    
     /*
     AddAWishViewController *addAWishVC = segue.sourceViewController;
     [wishList appendString:addAWishVC.strWish];
     [wishList appendString:@"\n\n"];
     textView.text = wishList;
     */
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self->mainTableView reloadData]; // to reload selected cell
 }
 
 - (void)didReceiveMemoryWarning

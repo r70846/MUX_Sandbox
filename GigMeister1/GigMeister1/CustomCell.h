@@ -12,11 +12,12 @@
 {
     IBOutlet UILabel *dayLabel;
     IBOutlet UILabel *dateLabel;
+    IBOutlet UILabel *eventLabel;
     IBOutlet UIImageView *cellImageView;
     
 }
 
--(void)refreshCellWithInfo:(NSString*)dayString dateString:(NSString*)dateString cellImage:(UIImage*)cellImage;
+-(void)refreshCellWithInfo:(NSString*)dayString dateString:(NSString*)dateString eventString:(NSString*)eventString cellImage:(UIImage*)cellImage;
 
 
 @end
