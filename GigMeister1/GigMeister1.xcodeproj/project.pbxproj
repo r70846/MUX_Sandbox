@@ -30,6 +30,8 @@
 		601AC55219282FF400AEF8B0 /* grey25.png in Resources */ = {isa = PBXBuildFile; fileRef = 601AC54C19282FF400AEF8B0 /* grey25.png */; };
 		601AC55319282FF400AEF8B0 /* red25.png in Resources */ = {isa = PBXBuildFile; fileRef = 601AC54D19282FF400AEF8B0 /* red25.png */; };
 		601AC5581928343D00AEF8B0 /* white25.png in Resources */ = {isa = PBXBuildFile; fileRef = 601AC5571928343D00AEF8B0 /* white25.png */; };
+		607FFDC419298627007D3D70 /* brand.gif in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC319298627007D3D70 /* brand.gif */; };
+		607FFDC619298700007D3D70 /* brandr.gif in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC5192986FF007D3D70 /* brandr.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		601AC54C19282FF400AEF8B0 /* grey25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey25.png; sourceTree = "<group>"; };
 		601AC54D19282FF400AEF8B0 /* red25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red25.png; sourceTree = "<group>"; };
 		601AC5571928343D00AEF8B0 /* white25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white25.png; sourceTree = "<group>"; };
+		607FFDC319298627007D3D70 /* brand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brand.gif; sourceTree = "<group>"; };
+		607FFDC5192986FF007D3D70 /* brandr.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brandr.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 		601AC511192807E100AEF8B0 /* GigMeister1 */ = {
 			isa = PBXGroup;
 			children = (
+				607FFDC5192986FF007D3D70 /* brandr.gif */,
+				607FFDC319298627007D3D70 /* brand.gif */,
 				601AC5571928343D00AEF8B0 /* white25.png */,
 				601AC51A192807E100AEF8B0 /* AppDelegate.h */,
 				601AC51B192807E100AEF8B0 /* AppDelegate.m */,
@@ -262,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				601AC55119282FF400AEF8B0 /* green25.png in Resources */,
+				607FFDC619298700007D3D70 /* brandr.gif in Resources */,
 				601AC54F19282FF400AEF8B0 /* clear25.png in Resources */,
+				607FFDC419298627007D3D70 /* brand.gif in Resources */,
 				601AC5581928343D00AEF8B0 /* white25.png in Resources */,
 				601AC524192807E100AEF8B0 /* Images.xcassets in Resources */,
 				601AC516192807E100AEF8B0 /* InfoPlist.strings in Resources */,
