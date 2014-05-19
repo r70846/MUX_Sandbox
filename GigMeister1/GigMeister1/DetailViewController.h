@@ -24,10 +24,13 @@
     IBOutlet UIButton *btnEdit;
     IBOutlet UIButton *btnSave;
     
+    IBOutlet UISwitch *switchConfirmed;
+    
 }
 
 
 -(IBAction)onClick:(id)sender;
+-(void)editMode;
 
 
 //@property (nonatomic, strong)NSString *gigDateString;

@@ -32,6 +32,7 @@
 		601AC5581928343D00AEF8B0 /* white25.png in Resources */ = {isa = PBXBuildFile; fileRef = 601AC5571928343D00AEF8B0 /* white25.png */; };
 		607FFDC419298627007D3D70 /* brand.gif in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC319298627007D3D70 /* brand.gif */; };
 		607FFDC619298700007D3D70 /* brandr.gif in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC5192986FF007D3D70 /* brandr.gif */; };
+		607FFDC8192988E9007D3D70 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC7192988E9007D3D70 /* circle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		601AC5571928343D00AEF8B0 /* white25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white25.png; sourceTree = "<group>"; };
 		607FFDC319298627007D3D70 /* brand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brand.gif; sourceTree = "<group>"; };
 		607FFDC5192986FF007D3D70 /* brandr.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brandr.gif; sourceTree = "<group>"; };
+		607FFDC7192988E9007D3D70 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		601AC511192807E100AEF8B0 /* GigMeister1 */ = {
 			isa = PBXGroup;
 			children = (
+				607FFDC7192988E9007D3D70 /* circle.png */,
 				607FFDC5192986FF007D3D70 /* brandr.gif */,
 				607FFDC319298627007D3D70 /* brand.gif */,
 				601AC5571928343D00AEF8B0 /* white25.png */,
@@ -270,6 +273,7 @@
 				601AC55119282FF400AEF8B0 /* green25.png in Resources */,
 				607FFDC619298700007D3D70 /* brandr.gif in Resources */,
 				601AC54F19282FF400AEF8B0 /* clear25.png in Resources */,
+				607FFDC8192988E9007D3D70 /* circle.png in Resources */,
 				607FFDC419298627007D3D70 /* brand.gif in Resources */,
 				601AC5581928343D00AEF8B0 /* white25.png in Resources */,
 				601AC524192807E100AEF8B0 /* Images.xcassets in Resources */,

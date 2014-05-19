@@ -25,6 +25,9 @@
 
 - (void)viewDidLoad
 {
+    //Enable input cells
+    [self editMode];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -55,6 +58,11 @@
     gigDayLabel.text = dateDay;
     gigDateLabel.text = dateDate;
     
+    if(self.currentGigDate.confirmed)
+    {
+        switchConfirmed.on = YES;
+    }
+    
     //Fill Text Fileds
     venueName.text = self.currentGigDate.venue;
     venueAddress.text = self.currentGigDate.address;
@@ -71,33 +79,31 @@
     UIButton *btn = sender;
     if(btn.tag == 1) //Edit Button
     {
-        NSLog(@"Button WAS the edit button");
-        
-        venueName.enabled = true;
-        venueName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
-        
-        venueAddress.enabled = true;
-        venueAddress.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
-        
-        contactName.enabled = true;
-        contactName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
-        
-        contactPhone.enabled = true;
-        contactPhone.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
-        
-        //venueName.userInteractionEnabled = true;
-        
-        
+        //NSLog(@"Button WAS the edit button");
     }
      else if (btn.tag == 2) //Save Button
     {
-        self.currentGigDate.status = @"Tenative";
-        self.currentGigDate.venue = venueName.text;
-        self.currentGigDate.address = venueAddress.text;
-        self.currentGigDate.contact = contactName.text;
-        self.currentGigDate.phone = contactPhone.text;
-        self.currentGigDate.notes = @"";
-        self.currentGigDate.flag = [UIImage imageNamed:@"green25.png"];
+
+        
+        
+        if(venueName.text.length != 0)
+        {
+            //self.currentGigDate.status = @"Tenative";
+            self.currentGigDate.venue = venueName.text;
+            self.currentGigDate.address = venueAddress.text;
+            self.currentGigDate.contact = contactName.text;
+            self.currentGigDate.phone = contactPhone.text;
+            self.currentGigDate.notes = @"";
+            self.currentGigDate.booked = true;
+            self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
+            
+            if(switchConfirmed.isOn)
+            {
+                self.currentGigDate.confirmed = true;
+                self.currentGigDate.flag = [UIImage imageNamed:@"green25.png"];
+            }
+            
+        }
         
         [self performSegueWithIdentifier:@"unwindToMainView" sender:sender];
         
@@ -106,6 +112,22 @@
     
 }
 
+-(void)editMode
+{
+    venueName.enabled = true;
+    venueName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+    
+    venueAddress.enabled = true;
+    venueAddress.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+    
+    contactName.enabled = true;
+    contactName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+    
+    contactPhone.enabled = true;
+    contactPhone.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+    
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

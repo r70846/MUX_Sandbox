@@ -14,6 +14,8 @@
 }
 @property int index;
 @property (nonatomic, strong)NSString *status;
+@property  BOOL booked;
+@property  BOOL confirmed;
 @property (nonatomic, strong)NSString *venue;
 @property (nonatomic, strong)NSString *address;
 @property (nonatomic, strong)NSString *contact;

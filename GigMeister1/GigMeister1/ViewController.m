@@ -142,6 +142,8 @@
         GigDateClass *oTemp = [[GigDateClass alloc] init];
         oTemp.index = x;
         oTemp.status = @"Open";
+        oTemp.booked = false;
+        oTemp.confirmed = false;
         oTemp.venue = @"";
         oTemp.address = @"";
         oTemp.contact = @"";

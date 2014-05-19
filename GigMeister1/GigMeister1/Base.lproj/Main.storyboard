@@ -92,7 +92,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Dates" id="dXI-Nd-6uf"/>
+                    <tabBarItem key="tabBarItem" title="Dates" image="circle.png" id="dXI-Nd-6uf">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Gig Meister" id="l8m-dy-AWa"/>
                     <connections>
                         <outlet property="mainTableView" destination="dMb-vS-4UG" id="rE5-m3-iHy"/>
@@ -171,7 +173,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="Wov-Zw-tc7"/>
+                    <tabBarItem key="tabBarItem" title="About" image="circle.png" id="Wov-Zw-tc7">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0or-aF-6Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,16 +279,6 @@
                                     <segue destination="JUv-gK-wPn" kind="unwind" identifier="unwindToMainView" unwindAction="done:" id="5fv-RG-EUQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5j-qO-eiK">
-                                <rect key="frame" x="135" y="26" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClick:" destination="0tD-if-EnK" eventType="touchUpInside" id="xwZ-bV-fwr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmA-rr-0Ed">
                                 <rect key="frame" x="238" y="26" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -377,12 +371,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="btnEdit" destination="a5j-qO-eiK" id="UVB-b3-5Hw"/>
                         <outlet property="btnSave" destination="VmA-rr-0Ed" id="Xka-pI-goO"/>
                         <outlet property="contactName" destination="Vjl-zU-vip" id="SEf-05-zbT"/>
                         <outlet property="contactPhone" destination="7Be-c8-vb8" id="pfD-WF-0sz"/>
                         <outlet property="gigDateLabel" destination="7LM-IK-Y1a" id="Hic-zj-gfT"/>
                         <outlet property="gigDayLabel" destination="CKx-2P-TGu" id="c8t-cf-r2D"/>
+                        <outlet property="switchConfirmed" destination="dgE-TE-afs" id="nMS-i6-d5A"/>
                         <outlet property="venueAddress" destination="gdq-C4-i5a" id="tey-5p-1im"/>
                         <outlet property="venueName" destination="XOJ-fc-3oS" id="9hV-QK-RY8"/>
                     </connections>
@@ -415,6 +409,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="brand.gif" width="190" height="87"/>
         <image name="brandr.gif" width="190" height="87"/>
+        <image name="circle.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
