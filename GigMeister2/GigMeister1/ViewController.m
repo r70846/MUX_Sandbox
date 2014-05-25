@@ -133,12 +133,49 @@
     //Built mutable array to hold gig dates (GigDateClass objects)
     gigDateArray = [[NSMutableArray alloc] init];
     
+ 
+    //DATE & TIME FUNCTIONS ////////////////////////////
+    
     
     //Get todays date
-    NSDate *oDate = [NSDate date];
-
-    //Create component to iterated the date
+    NSDate *oToday = [NSDate date];
+    
+    // Create calendar object needed to use date components
     NSCalendar *oCalendar = [NSCalendar currentCalendar];
+
+    //Initialize time to noon
+    NSString *setTime = @"12:00 PM";
+    
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setDateFormat:@"h:mm a"];
+    
+    NSDateComponents *timeComponents = [oCalendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:[timeFormatter dateFromString:setTime]];
+    
+    NSDateComponents *dateComponents = [oCalendar components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:oToday];
+    
+    //Use current date for the time object
+    timeComponents.year = dateComponents.year;
+    timeComponents.month = dateComponents.month;
+    timeComponents.day = dateComponents.day;
+    
+     NSDate *oDate = [oCalendar dateFromComponents:timeComponents];
+    
+    /*
+    
+    NSDateFormatter *dateTimeFormatter = [[NSDateFormatter alloc] init];
+    if (dateTimeFormatter != nil)
+    {
+        [dateTimeFormatter setDateFormat:@"MMM d, yyyy - h:mm a"];
+    }
+    
+    //Build the date into a string based on my day format
+    NSString *dateTime = [[NSString alloc] initWithFormat:@"%@", [dateTimeFormatter stringFromDate: oDate]];
+    
+    NSLog(@"%@", dateTime);
+    */
+    
+
+    //Create "single day" component to iterated the date
     NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
     dayComponent.day = 1;
     
@@ -146,6 +183,7 @@
     //Load Array with GigDate Objects
     for (int x=0; x < 10 ; x++)
     {
+        
         //Create temporary GigDate object to load array
         GigDateClass *oTemp = [[GigDateClass alloc] init];
         oTemp.index = x;
@@ -158,6 +196,9 @@
         oTemp.phone = @"";
         oTemp.notes = @"";
         oTemp.date = oDate;
+        oTemp.call = oDate;
+        oTemp.start = oDate;
+        oTemp.end = oDate;
         oTemp.flag = [UIImage imageNamed:@"white25.png"];
         [gigDateArray addObject:oTemp];
         

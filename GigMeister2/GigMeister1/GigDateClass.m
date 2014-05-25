@@ -17,7 +17,7 @@
 #import "GigDateClass.h"
 
 @implementation GigDateClass
-@synthesize index, status, booked, confirmed, venue, address, contact, phone, notes, date, flag;
+@synthesize index, status, booked, confirmed, venue, address, contact, phone, notes, date, call, start, end, flag;
 
 
 @end

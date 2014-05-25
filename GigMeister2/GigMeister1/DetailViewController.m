@@ -74,6 +74,7 @@
     gigDayLabel.text = dateDay;
     gigDateLabel.text = dateDate;
     
+    //Set confirmation switch to current state
     if(self.currentGigDate.confirmed)
     {
         switchConfirmed.on = YES;
@@ -84,6 +85,11 @@
     venueAddress.text = self.currentGigDate.address;
     contactName.text = self.currentGigDate.contact;
     contactPhone.text = self.currentGigDate.phone;
+    
+    //Fill time pickers
+    callPicker.date = self.currentGigDate.call;
+    startPicker.date = self.currentGigDate.start;
+    
 
     //detailImage.image = self.currentMusician.instImage;
     
@@ -128,6 +134,8 @@
             self.currentGigDate.address = venueAddress.text;
             self.currentGigDate.contact = contactName.text;
             self.currentGigDate.phone = contactPhone.text;
+            self.currentGigDate.call = callPicker.date;
+            self.currentGigDate.start = startPicker.date;
             self.currentGigDate.notes = @"";
             self.currentGigDate.booked = true;
             self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
@@ -137,6 +145,11 @@
                 self.currentGigDate.confirmed = true;
                 self.currentGigDate.flag = [UIImage imageNamed:@"green25.png"];
             }
+            
+            
+            
+            
+            
             
         }
         

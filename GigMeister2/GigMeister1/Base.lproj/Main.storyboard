@@ -383,10 +383,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="btnDone" destination="afB-Qa-R5G" id="OXP-Og-AtQ"/>
                         <outlet property="btnSave" destination="VmA-rr-0Ed" id="Xka-pI-goO"/>
+                        <outlet property="callPicker" destination="DmV-m1-qQA" id="2ab-eA-PT3"/>
                         <outlet property="contactName" destination="Vjl-zU-vip" id="SEf-05-zbT"/>
                         <outlet property="contactPhone" destination="7Be-c8-vb8" id="pfD-WF-0sz"/>
                         <outlet property="gigDateLabel" destination="7LM-IK-Y1a" id="Hic-zj-gfT"/>
                         <outlet property="gigDayLabel" destination="CKx-2P-TGu" id="c8t-cf-r2D"/>
+                        <outlet property="startPicker" destination="9tV-Kb-Fee" id="Cpv-LB-JxP"/>
                         <outlet property="switchConfirmed" destination="dgE-TE-afs" id="nMS-i6-d5A"/>
                         <outlet property="venueAddress" destination="gdq-C4-i5a" id="tey-5p-1im"/>
                         <outlet property="venueName" destination="XOJ-fc-3oS" id="9hV-QK-RY8"/>

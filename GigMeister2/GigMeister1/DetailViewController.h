@@ -33,7 +33,8 @@
     IBOutlet UIButton *btnSave;
     IBOutlet UIButton *btnDone;
 
-    
+    IBOutlet UIDatePicker *callPicker;
+    IBOutlet UIDatePicker *startPicker;
     
     IBOutlet UISwitch *switchConfirmed;
     

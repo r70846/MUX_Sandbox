@@ -30,6 +30,10 @@
 @property (nonatomic, strong)NSString *phone;
 @property (nonatomic, strong)NSString *notes;
 @property (nonatomic, strong)NSDate *date;
+@property (nonatomic, strong)NSDate *call;
+@property (nonatomic, strong)NSDate *start;
+@property (nonatomic, strong)NSDate *end;
+
 @property (nonatomic, strong)UIImage *flag;
 
 @end
