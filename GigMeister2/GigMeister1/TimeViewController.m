@@ -5,6 +5,15 @@
 //  Created by Russell Gaspard on 5/25/14.
 //  Copyright (c) 2014 Russell Gaspard. All rights reserved.
 //
+/*
+ 
+ Russ Gaspard
+ Week 3
+ Mobile Development
+ MUX 1405
+ 
+ */
+
 
 #import "TimeViewController.h"
 
@@ -31,8 +40,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    /*
+     //Leave this templete for possible implimentation
+     //of text entry fields in future iterations
     
+    /*
     //Hide keyboard retract button
     btnDone.hidden = true;
     
@@ -41,7 +52,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
      */
-    
 
     //Copy times to avoid saving to data
     self.calltime = self.currentGigDate.call;
@@ -64,11 +74,9 @@
     
     //Build the call into a string based on my time format
     NSString *callTime = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.calltime]];
-    //self.calltime = self.currentGigDate.call;
     
     //Build the start into a string based on my time format
     NSString *startTime = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.starttime]];
-    //self.starttime = self.currentGigDate.start;
     
     //Fill label elements with data specific to object that was chosen from he table view
     gigDateLabel.text = dateDate;
@@ -100,14 +108,17 @@
     UIButton *btn = sender;
     
     
-    if(btn.tag == 1) //Done Button
+    if(btn.tag == 1) //Close (Retract Keyboard Button)
     {
-        
-        
+        //Leave this templete for possible implimentation
+        //of text entry fields in future iterations
     }
-    else if (btn.tag == 2) //Save Button
+    
+    
+    else if (btn.tag == 2) //Save ("Done") Button
     {
         //Back to detail view
+        self.caller = 2;
         [self performSegueWithIdentifier:@"unwindToDetailView" sender:sender];
 
     }

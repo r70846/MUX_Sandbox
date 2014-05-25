@@ -8,7 +8,7 @@
 /*
  
  Russ Gaspard
- Week 2
+ Week 3
  Mobile Development
  MUX 1405
  
@@ -25,8 +25,6 @@
 
 @implementation ViewController
 
-
-
 - (void)viewDidLoad
 {
     //Call method to load data into array
@@ -35,7 +33,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
-
 
 //Number of rows in table will equal the number of BandMateClass objects in my data array
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -48,10 +45,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
     
-
     if (cell != nil)
     {
         
@@ -82,22 +77,7 @@
         [cell refreshCellWithInfo:dateDay dateString:dateDate eventString:currentGigDate.venue cellImage:currentGigDate.flag];
 
     }
-    
-    /*
-    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicianCell"];
-    
-    if (cell != nil)
-    {
-        BandMateClass *currentMusician = [musicianArray objectAtIndex:indexPath.row];
-        
-        [cell refreshCellWithInfo:currentMusician.name instString:currentMusician.instrument cellImage:currentMusician.instImage];
-        
-    }
     return cell;
-    */
-    
-    return cell;
-    
 }
 
 
@@ -127,15 +107,11 @@
 //Function to load hard coded data into array of BandMate objects
 - (void)loadGigDates
 {
-    
-    //NSLog(@"Rebuilding objects");
-    
     //Built mutable array to hold gig dates (GigDateClass objects)
     gigDateArray = [[NSMutableArray alloc] init];
     
  
     //DATE & TIME FUNCTIONS ////////////////////////////
-    
     
     //Get todays date
     NSDate *oToday = [NSDate date];
@@ -158,22 +134,8 @@
     timeComponents.month = dateComponents.month;
     timeComponents.day = dateComponents.day;
     
+    //Build final date entry
      NSDate *oDate = [oCalendar dateFromComponents:timeComponents];
-    
-    /*
-    
-    NSDateFormatter *dateTimeFormatter = [[NSDateFormatter alloc] init];
-    if (dateTimeFormatter != nil)
-    {
-        [dateTimeFormatter setDateFormat:@"MMM d, yyyy - h:mm a"];
-    }
-    
-    //Build the date into a string based on my day format
-    NSString *dateTime = [[NSString alloc] initWithFormat:@"%@", [dateTimeFormatter stringFromDate: oDate]];
-    
-    NSLog(@"%@", dateTime);
-    */
-    
 
     //Create "single day" component to iterated the date
     NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
@@ -209,24 +171,10 @@
 
 -(IBAction)done:(UIStoryboardSegue*)segue
 {
-    
     DetailViewController *detailView = segue.sourceViewController;
     GigDateClass *currentGigDate = detailView.currentGigDate;
     gigDateArray[currentGigDate.index] = currentGigDate;
-    
-    
-    NSLog(@"%@", currentGigDate.venue);
-    
-    
-    /*
-    AddAWishViewController *addAWishVC = segue.sourceViewController;
-    [wishList appendString:addAWishVC.strWish];
-    [wishList appendString:@"\n\n"];
-    textView.text = wishList;
-    */
 }
-
-
 
 
 - (void)viewWillAppear:(BOOL)animated {

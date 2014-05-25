@@ -8,7 +8,7 @@
 /*
  
  Russ Gaspard
- Week 2
+ Week 3
  Mobile Development
  MUX 1405
  
@@ -18,6 +18,5 @@
 
 @implementation GigDateClass
 @synthesize index, status, booked, confirmed, venue, address, contact, phone, notes, date, call, start, end, flag;
-
 
 @end

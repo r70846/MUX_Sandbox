@@ -8,7 +8,7 @@
 /*
  
  Russ Gaspard
- Week 2
+ Week 3
  Mobile Development
  MUX 1405
  
@@ -34,27 +34,6 @@
 
 - (void)viewDidLoad
 {
-    //Define "caller" array based on button tags
-    //self.caller = [[NSArray alloc] initWithObjects:@"back",@"done",@"save",@"call",@"start",nil];
-    
-    
-    //Enable input cells
-    [self editMode];
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    //Hide keyboard retract button
-    btnDone.hidden = true;
-    
-    //Deal with the keyboard
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
     //Create format for day
     NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
     if (dayFormatter != nil)
@@ -80,18 +59,44 @@
     [timeFormatter setDateFormat:@"h:mm a"];
     
     //Build the call into a string based on my time format
-    NSString *callTime = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.currentGigDate.call]];
+    self.callstring = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.currentGigDate.call]];
     
     //Build the start into a string based on my time format
-    NSString *startTime = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.currentGigDate.start]];
-    
+    self.startstring = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.currentGigDate.start]];
     
     //Fill label elements with data specific to object that was chosen from he table view
     gigDayLabel.text = dateDay;
     gigDateLabel.text = dateDate;
     
-    callTimeLabel.text = callTime;
-    startTimeLabel.text = startTime;
+    //Fill Internal Properties with Object Properties
+    self.venueNameString = self.currentGigDate.venue;
+    self.venueAddressString = self.currentGigDate.address;
+    self.contactNameString = self.currentGigDate.contact;
+    self.contactPhoneString = self.currentGigDate.phone;
+    self.calltime = self.currentGigDate.call;
+    self.starttime = self.currentGigDate.start;
+    
+    
+    //Enable input cells
+    [self editMode];
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //Hide keyboard retract button
+    btnDone.hidden = true;
+    
+    //Deal with the keyboard
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
+    //Fill Time Labels here - after 'viewDidLoad' so I can modify)
+    callTimeLabel.text = self.callstring;
+    startTimeLabel.text = self.startstring;
     
     
     //Set confirmation switch to current state
@@ -101,17 +106,10 @@
     }
     
     //Fill Text Fileds
-    venueName.text = self.currentGigDate.venue;
-    venueAddress.text = self.currentGigDate.address;
-    contactName.text = self.currentGigDate.contact;
-    contactPhone.text = self.currentGigDate.phone;
-    
-    //Fill time pickers
-    //callPicker.date = self.currentGigDate.call;
-    //startPicker.date = self.currentGigDate.start;
-    
-
-    //detailImage.image = self.currentMusician.instImage;
+    venueName.text = self.venueNameString;
+    venueAddress.text = self.venueAddressString;
+    contactName.text = self.contactNameString;
+    contactPhone.text = self.contactPhoneString;
     
     [super viewWillAppear:(BOOL)animated];
 }
@@ -131,14 +129,7 @@
 
 -(IBAction)onClick:(id)sender
 {
-    
-    
-    
     UIButton *btn = sender;
-    
-   // NSLog(@"%@", self.caller[btn.tag]);
-
-    
     
     if(btn.tag == 1) //Done Button
     {
@@ -152,9 +143,6 @@
     }
      else if (btn.tag == 2) //Save Button
     {
-
-        
-        
         if(venueName.text.length != 0)
         {
             //self.currentGigDate.status = @"Tenative";
@@ -162,8 +150,8 @@
             self.currentGigDate.address = venueAddress.text;
             self.currentGigDate.contact = contactName.text;
             self.currentGigDate.phone = contactPhone.text;
-            //self.currentGigDate.call = callPicker.date;
-            //self.currentGigDate.start = startPicker.date;
+            self.currentGigDate.call = self.calltime;
+            self.currentGigDate.start = self.starttime;
             self.currentGigDate.notes = @"";
             self.currentGigDate.booked = true;
             self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
@@ -173,12 +161,6 @@
                 self.currentGigDate.confirmed = true;
                 self.currentGigDate.flag = [UIImage imageNamed:@"green25.png"];
             }
-            
-            
-            
-            
-            
-            
         }
         
         [self performSegueWithIdentifier:@"unwindToMainView" sender:sender];
@@ -212,20 +194,35 @@
 -(IBAction)done:(UIStoryboardSegue*)segue
 {
     
-    //TimeViewController *timeView = segue.sourceViewController;
-    //GigDateClass *currentGigDate = timeView.currentGigDate;
-    //gigDateArray[currentGigDate.index] = currentGigDate;
+    TimeViewController *timeView = segue.sourceViewController;
+    NSLog(@"Back in detail view. %d", timeView.caller);
     
+    if(timeView.caller == 2)
+    {
+        //Save times chosen from Time Picker
+        self.calltime = timeView.calltime;
+        self.starttime = timeView.starttime;
+        
+        //Create format for times
+        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+        [timeFormatter setDateFormat:@"h:mm a"];
+        
+        //Build the call into a string based on my time format
+        self.callstring = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.calltime]];
+        
+        //Build the start into a string based on my time format
+        self.startstring = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.starttime]];
 
-    
-    NSLog(@"Back in detail view");
-    
+    }
+    else
+    {
+
+    }
 }
 
 //Called when we are about to segue (but which direction?)
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
     
     //Cast the "sender" as a Button
     UIButton *button = (UIButton*)sender;
@@ -237,6 +234,13 @@
     
     if(tag == 3 || tag == 4) //On our way to the "time" view controller
     {
+        
+        //Save any tenative user entry data
+        self.venueNameString = venueName.text;
+        self.venueAddressString = venueAddress.text;
+        self.contactNameString = contactName.text;
+        self.contactPhoneString = contactPhone.text;
+        
         TimeViewController *timeViewController = segue.destinationViewController;
         
         if (timeViewController != nil)
@@ -252,32 +256,7 @@
     else //On our way home
     {
         
-        
     }
-    
-    
-    
-    /*
-    DetailViewController *detailViewController = segue.destinationViewController;
-    
-    if (detailViewController != nil)
-    {
-        
-        //Cast the "sender" as a TableView Cell
-        UITableViewCell *cell = (UITableViewCell*)sender;
-        NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
-        
-        //Get GigDate object from the array based on the item in the tableview we clicked on
-        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
-        
-        //Set the currentGigDate property in detail view to the chosen one
-        detailViewController.currentGigDate = currentGigDate;
-        
-    }
-    
-    */
-    
-    
 }
 
 - (void)didReceiveMemoryWarning

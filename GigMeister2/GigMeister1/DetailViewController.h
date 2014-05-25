@@ -8,7 +8,7 @@
 /*
  
  Russ Gaspard
- Week 2
+ Week 3
  Mobile Development
  MUX 1405
  
@@ -36,9 +36,6 @@
     
     IBOutlet UILabel *callTimeLabel;
     IBOutlet UILabel *startTimeLabel;
-
-    //IBOutlet UIDatePicker *callPicker;
-    //IBOutlet UIDatePicker *startPicker;
     
     IBOutlet UISwitch *switchConfirmed;
     
@@ -48,13 +45,17 @@
 -(IBAction)onClick:(id)sender;
 -(void)editMode;
 
-
-//@property (nonatomic, strong)NSString *gigDateString;
+//Set the object property
 @property (nonatomic, strong)GigDateClass *currentGigDate;
 
+//Set individual properties - before saving to object
 @property (nonatomic, strong)NSDate *calltime;
 @property (nonatomic, strong)NSDate *starttime;
-
-//@property (nonatomic, strong)NSArray *caller;
+@property (nonatomic, strong)NSString *callstring;
+@property (nonatomic, strong)NSString *startstring;
+@property (nonatomic, strong)NSString *venueNameString;
+@property (nonatomic, strong)NSString *venueAddressString;
+@property (nonatomic, strong)NSString *contactNameString;
+@property (nonatomic, strong)NSString *contactPhoneString;
 
 @end
