@@ -52,4 +52,9 @@
 //@property (nonatomic, strong)NSString *gigDateString;
 @property (nonatomic, strong)GigDateClass *currentGigDate;
 
+@property (nonatomic, strong)NSDate *calltime;
+@property (nonatomic, strong)NSDate *starttime;
+
+//@property (nonatomic, strong)NSArray *caller;
+
 @end

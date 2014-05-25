@@ -15,6 +15,7 @@
  */
 
 #import "DetailViewController.h"
+#import "TimeViewController.h"
 
 @interface DetailViewController ()
 
@@ -33,6 +34,10 @@
 
 - (void)viewDidLoad
 {
+    //Define "caller" array based on button tags
+    //self.caller = [[NSArray alloc] initWithObjects:@"back",@"done",@"save",@"call",@"start",nil];
+    
+    
     //Enable input cells
     [self editMode];
     
@@ -126,8 +131,16 @@
 
 -(IBAction)onClick:(id)sender
 {
+    
+    
+    
     UIButton *btn = sender;
-    if(btn.tag == 1) //Edit Button
+    
+   // NSLog(@"%@", self.caller[btn.tag]);
+
+    
+    
+    if(btn.tag == 1) //Done Button
     {
 
         //This should also dismiss the keyboard
@@ -173,8 +186,8 @@
     }
     else if (btn.tag == 4)
     {
+        //Go to Time view controller by this alternate button push
         [self performSegueWithIdentifier:@"GigDateTime" sender:sender];
-        NSLog(@"Made it here");
     }
     
 }
@@ -203,11 +216,69 @@
     //GigDateClass *currentGigDate = timeView.currentGigDate;
     //gigDateArray[currentGigDate.index] = currentGigDate;
     
+
     
-    NSLog(@"Back to etail view");
+    NSLog(@"Back in detail view");
     
 }
 
+//Called when we are about to segue (but which direction?)
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    
+    //Cast the "sender" as a Button
+    UIButton *button = (UIButton*)sender;
+    
+    //NSString *from = self.caller[button.tag];
+    int tag = button.tag;
+    
+    //NSLog(@"%d",tag);
+    
+    if(tag == 3 || tag == 4) //On our way to the "time" view controller
+    {
+        TimeViewController *timeViewController = segue.destinationViewController;
+        
+        if (timeViewController != nil)
+        {
+            //Set the currentGigDate property in time view
+            timeViewController.currentGigDate = self.currentGigDate;
+            
+            //Pass along the source of my button click
+            timeViewController.caller = tag;
+        }
+        
+    }
+    else //On our way home
+    {
+        
+        
+    }
+    
+    
+    
+    /*
+    DetailViewController *detailViewController = segue.destinationViewController;
+    
+    if (detailViewController != nil)
+    {
+        
+        //Cast the "sender" as a TableView Cell
+        UITableViewCell *cell = (UITableViewCell*)sender;
+        NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
+        
+        //Get GigDate object from the array based on the item in the tableview we clicked on
+        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+        
+        //Set the currentGigDate property in detail view to the chosen one
+        detailViewController.currentGigDate = currentGigDate;
+        
+    }
+    
+    */
+    
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
