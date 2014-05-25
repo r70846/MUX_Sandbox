@@ -367,10 +367,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.59999999999999964" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afB-Qa-R5G">
+                                <rect key="frame" x="120" y="26" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="keyback.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClick:" destination="0tD-if-EnK" eventType="touchUpInside" id="wz1-Wo-BqJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnDone" destination="afB-Qa-R5G" id="OXP-Og-AtQ"/>
                         <outlet property="btnSave" destination="VmA-rr-0Ed" id="Xka-pI-goO"/>
                         <outlet property="contactName" destination="Vjl-zU-vip" id="SEf-05-zbT"/>
                         <outlet property="contactPhone" destination="7Be-c8-vb8" id="pfD-WF-0sz"/>
@@ -410,6 +421,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="brand.gif" width="190" height="87"/>
         <image name="brandr.gif" width="190" height="87"/>
         <image name="circle.png" width="25" height="25"/>
+        <image name="keyback.png" width="80" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
