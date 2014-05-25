@@ -20,13 +20,18 @@
 @interface TimeViewController : UIViewController
 {
     
-    IBOutlet UIButton *btnSave;
+    
+    IBOutlet UIButton *btnClose;
+    IBOutlet UIButton *btnDone;
+    IBOutlet UIButton *btnClear;
+    
     IBOutlet UIButton *btnCall;
     IBOutlet UIButton *btnStart;
     
+    IBOutlet UITextView *termsView;
     
-    IBOutlet UILabel *gigDayLabel;
     IBOutlet UILabel *gigDateLabel;
+    IBOutlet UILabel *venueLabel;
     IBOutlet UILabel *callTimeLabel;
     IBOutlet UILabel *startTimeLabel;
     
@@ -41,11 +46,10 @@
 -(IBAction)onChange:(id)sender;
 
 @property (nonatomic, strong)GigDateClass *currentGigDate;
+@property (nonatomic, strong)NSString *venue;
 @property (nonatomic, strong)NSDate *calltime;
 @property (nonatomic, strong)NSDate *starttime;
-
-//@property (nonatomic, strong)NSString *payment;
-//@property (nonatomic, strong)NSString *notes;
+@property (nonatomic, strong)NSString *notes;
 
 @property int caller;
 

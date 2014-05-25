@@ -34,29 +34,22 @@
 
 - (void)viewDidLoad
 {
+    
+    
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-     //Leave this templete for possible implimentation
-     //of text entry fields in future iterations
-    
-    /*
     //Hide keyboard retract button
-    btnDone.hidden = true;
+    btnClose.hidden = true;
     
     //Deal with the keyboard
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
-     */
-
-    //Copy times to avoid saving to data
-    self.calltime = self.currentGigDate.call;
-    self.starttime = self.currentGigDate.start;
-    
     
     //Create format for date
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -78,11 +71,12 @@
     //Build the start into a string based on my time format
     NSString *startTime = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.starttime]];
     
-    //Fill label elements with data specific to object that was chosen from he table view
+    //Fill label elements with data from the other views
     gigDateLabel.text = dateDate;
+    venueLabel.text = self.venue;
     callTimeLabel.text = callTime;
     startTimeLabel.text = startTime;
-    
+    termsView.text = self.notes;
     
     //Fill time picker
     if(self.caller == 3) //call time button tag
@@ -97,10 +91,25 @@
         timePicker.date = self.starttime;
     }
     
+    if(self.caller == 5)
+    {
+        [termsView becomeFirstResponder];
+    }
     
     [super viewWillAppear:(BOOL)animated];
 }
 
+-(void)keyboardWillShow:(NSNotification *)notification
+{
+    //Show keyboard retract button
+    btnClose.hidden = false;
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification
+{
+    //Hide keyboard retract button
+    btnClose.hidden = true;
+}
 
 -(IBAction)onClick:(id)sender
 {
@@ -110,20 +119,23 @@
     
     if(btn.tag == 1) //Close (Retract Keyboard Button)
     {
-        //Leave this templete for possible implimentation
-        //of text entry fields in future iterations
+        //This should also dismiss the keyboard
+        [termsView resignFirstResponder];
     }
-    
     
     else if (btn.tag == 2) //Save ("Done") Button
     {
         //Back to detail view
         self.caller = 2;
+        
+        //Update notes view
+        self.notes = termsView.text;
+        
         [self performSegueWithIdentifier:@"unwindToDetailView" sender:sender];
 
     }
     
-    else if (btn.tag == 3)
+    else if (btn.tag == 3) //Select call time control
     {
         self.caller = 3;
         
@@ -134,7 +146,7 @@
             startTimeLabel.backgroundColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
     }
     
-    else if (btn.tag == 4)
+    else if (btn.tag == 4)  //Select start time control
     {
         self.caller = 4;
         
@@ -144,7 +156,10 @@
         
             callTimeLabel.backgroundColor = [UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
     }
-    
+    else if (btn.tag == 6)  //Clear Terms View
+    {
+        termsView.text = @"";
+    }
 }
 
 -(IBAction)onChange:(id)sender

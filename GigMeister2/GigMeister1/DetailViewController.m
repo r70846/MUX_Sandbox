@@ -64,9 +64,10 @@
     //Build the start into a string based on my time format
     self.startstring = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.currentGigDate.start]];
     
-    //Fill label elements with data specific to object that was chosen from he table view
+    //Fill label elements with data for object that was chosen from table view
     gigDayLabel.text = dateDay;
     gigDateLabel.text = dateDate;
+    
     
     //Fill Internal Properties with Object Properties
     self.venueNameString = self.currentGigDate.venue;
@@ -75,7 +76,7 @@
     self.contactPhoneString = self.currentGigDate.phone;
     self.calltime = self.currentGigDate.call;
     self.starttime = self.currentGigDate.start;
-    
+    self.notes = self.currentGigDate.notes;
     
     //Enable input cells
     [self editMode];
@@ -88,16 +89,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     //Hide keyboard retract button
-    btnDone.hidden = true;
+    btnClose.hidden = true;
     
     //Deal with the keyboard
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
-    //Fill Time Labels here - after 'viewDidLoad' so I can modify)
+    //Fill time & notes Labels here - after 'viewDidLoad' so I can modify)
     callTimeLabel.text = self.callstring;
     startTimeLabel.text = self.startstring;
-    
+    termsView.text = self.notes;
     
     //Set confirmation switch to current state
     if(self.currentGigDate.confirmed)
@@ -111,19 +112,25 @@
     contactName.text = self.contactNameString;
     contactPhone.text = self.contactPhoneString;
     
+    if(venueName.text.length == 0)
+    {
+        [venueName becomeFirstResponder];
+    }
+        
+        
     [super viewWillAppear:(BOOL)animated];
 }
 
 -(void)keyboardWillShow:(NSNotification *)notification
 {
     //Show keyboard retract button
-    btnDone.hidden = false;
+    btnClose.hidden = false;
 }
 
 -(void)keyboardWillHide:(NSNotification *)notification
 {
     //Hide keyboard retract button
-    btnDone.hidden = true;
+    btnClose.hidden = true;
 }
 
 
@@ -152,7 +159,7 @@
             self.currentGigDate.phone = contactPhone.text;
             self.currentGigDate.call = self.calltime;
             self.currentGigDate.start = self.starttime;
-            self.currentGigDate.notes = @"";
+            self.currentGigDate.notes = self.notes;
             self.currentGigDate.booked = true;
             self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
             
@@ -171,37 +178,41 @@
         //Go to Time view controller by this alternate button push
         [self performSegueWithIdentifier:@"GigDateTime" sender:sender];
     }
-    
+    else if (btn.tag == 5)
+    {
+        //Go to Time view controller by this alternate button push
+        [self performSegueWithIdentifier:@"GigDateTime" sender:sender];
+    }
 }
 
 -(void)editMode
 {
     venueName.enabled = true;
-    venueName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+    //venueName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
     
     venueAddress.enabled = true;
-    venueAddress.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+    //venueAddress.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
     
     contactName.enabled = true;
-    contactName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+    //contactName.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
     
     contactPhone.enabled = true;
-    contactPhone.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
-    
-    
+    //contactPhone.backgroundColor = [UIColor colorWithRed:(240/255.0) green:(250/255.0) blue:(190/255.0) alpha:1];
+
 }
 
 -(IBAction)done:(UIStoryboardSegue*)segue
 {
     
     TimeViewController *timeView = segue.sourceViewController;
-    NSLog(@"Back in detail view. %d", timeView.caller);
+    //NSLog(@"Back in detail view. %d", timeView.caller);
     
     if(timeView.caller == 2)
     {
-        //Save times chosen from Time Picker
+        //Save times & notes chosen from Time Picker
         self.calltime = timeView.calltime;
         self.starttime = timeView.starttime;
+        self.notes = timeView.notes;
         
         //Create format for times
         NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
@@ -212,12 +223,12 @@
         
         //Build the start into a string based on my time format
         self.startstring = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.starttime]];
-
+        
     }
     else
     {
-
     }
+    
 }
 
 //Called when we are about to segue (but which direction?)
@@ -232,7 +243,7 @@
     
     //NSLog(@"%d",tag);
     
-    if(tag == 3 || tag == 4) //On our way to the "time" view controller
+    if(tag == 3 || tag == 4 || tag == 5 ) //On our way to the "time" view controller
     {
         
         //Save any tenative user entry data
@@ -247,6 +258,18 @@
         {
             //Set the currentGigDate property in time view
             timeViewController.currentGigDate = self.currentGigDate;
+            
+            //Set the currentGigDate property in time view
+            timeViewController.venue = self.venueNameString;
+            
+            //Set the call time property in time view
+            timeViewController.calltime = self.calltime;
+
+            //Set the start time property in time view
+            timeViewController.starttime = self.starttime;
+            
+            //Set the notes content in time view
+            timeViewController.notes = self.notes;
             
             //Pass along the source of my button click
             timeViewController.caller = tag;

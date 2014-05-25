@@ -20,8 +20,17 @@
 @interface DetailViewController : UIViewController
 {
     //Set up data outlets in detail view
+    
+    //IBOutlet UIButton *btnEdit;
+    
+    IBOutlet UIButton *btnClose;
+    IBOutlet UIButton *btnSave;
+
+    
     IBOutlet UILabel *gigDayLabel;
     IBOutlet UILabel *gigDateLabel;
+    
+    IBOutlet UISwitch *switchConfirmed;
     
     IBOutlet UITextField *venueName;
     IBOutlet UITextField *venueAddress;
@@ -29,20 +38,15 @@
     IBOutlet UITextField *contactName;
     IBOutlet UITextField *contactPhone;
     
-    IBOutlet UIButton *btnEdit;
-    IBOutlet UIButton *btnSave;
-    IBOutlet UIButton *btnDone;
-    
-    
     IBOutlet UILabel *callTimeLabel;
     IBOutlet UILabel *startTimeLabel;
     
-    IBOutlet UISwitch *switchConfirmed;
-    
+    IBOutlet UITextView *termsView;
 }
 
 
 -(IBAction)onClick:(id)sender;
+
 -(void)editMode;
 
 //Set the object property
@@ -57,5 +61,6 @@
 @property (nonatomic, strong)NSString *venueAddressString;
 @property (nonatomic, strong)NSString *contactNameString;
 @property (nonatomic, strong)NSString *contactPhoneString;
+@property (nonatomic, strong)NSString *notes;
 
 @end
