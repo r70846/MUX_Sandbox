@@ -32,9 +32,13 @@
     IBOutlet UIButton *btnEdit;
     IBOutlet UIButton *btnSave;
     IBOutlet UIButton *btnDone;
+    
+    
+    IBOutlet UILabel *callTimeLabel;
+    IBOutlet UILabel *startTimeLabel;
 
-    IBOutlet UIDatePicker *callPicker;
-    IBOutlet UIDatePicker *startPicker;
+    //IBOutlet UIDatePicker *callPicker;
+    //IBOutlet UIDatePicker *startPicker;
     
     IBOutlet UISwitch *switchConfirmed;
     

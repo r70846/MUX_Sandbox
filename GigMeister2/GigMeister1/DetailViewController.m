@@ -67,12 +67,27 @@
         [dateFormatter setDateFormat:@"MMM d, yyyy"];
     }
     
-    //Build the date into a string based on my day format
+    //Build the date into a string based on my date format
     NSString *dateDate = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate: self.currentGigDate.date]];
+    
+    //Create format for times
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setDateFormat:@"h:mm a"];
+    
+    //Build the call into a string based on my time format
+    NSString *callTime = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.currentGigDate.call]];
+    
+    //Build the start into a string based on my time format
+    NSString *startTime = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.currentGigDate.start]];
+    
     
     //Fill label elements with data specific to object that was chosen from he table view
     gigDayLabel.text = dateDay;
     gigDateLabel.text = dateDate;
+    
+    callTimeLabel.text = callTime;
+    startTimeLabel.text = startTime;
+    
     
     //Set confirmation switch to current state
     if(self.currentGigDate.confirmed)
@@ -87,8 +102,8 @@
     contactPhone.text = self.currentGigDate.phone;
     
     //Fill time pickers
-    callPicker.date = self.currentGigDate.call;
-    startPicker.date = self.currentGigDate.start;
+    //callPicker.date = self.currentGigDate.call;
+    //startPicker.date = self.currentGigDate.start;
     
 
     //detailImage.image = self.currentMusician.instImage;
@@ -134,8 +149,8 @@
             self.currentGigDate.address = venueAddress.text;
             self.currentGigDate.contact = contactName.text;
             self.currentGigDate.phone = contactPhone.text;
-            self.currentGigDate.call = callPicker.date;
-            self.currentGigDate.start = startPicker.date;
+            //self.currentGigDate.call = callPicker.date;
+            //self.currentGigDate.start = startPicker.date;
             self.currentGigDate.notes = @"";
             self.currentGigDate.booked = true;
             self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
@@ -156,7 +171,11 @@
         [self performSegueWithIdentifier:@"unwindToMainView" sender:sender];
         
     }
-
+    else if (btn.tag == 4)
+    {
+        [self performSegueWithIdentifier:@"GigDateTime" sender:sender];
+        NSLog(@"Made it here");
+    }
     
 }
 
@@ -176,6 +195,19 @@
     
     
 }
+
+-(IBAction)done:(UIStoryboardSegue*)segue
+{
+    
+    //TimeViewController *timeView = segue.sourceViewController;
+    //GigDateClass *currentGigDate = timeView.currentGigDate;
+    //gigDateArray[currentGigDate.index] = currentGigDate;
+    
+    
+    NSLog(@"Back to etail view");
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
