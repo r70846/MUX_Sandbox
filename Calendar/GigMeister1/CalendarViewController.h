@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CalendarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+{
+    IBOutlet UITableView *calTableView;    //Table view reference
+    NSMutableArray *gigWeekArray;          //Reference to main array that will hold my GigDate objects
+}
 @end

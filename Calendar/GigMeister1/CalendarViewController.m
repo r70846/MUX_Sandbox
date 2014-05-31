@@ -7,6 +7,8 @@
 //
 
 #import "CalendarViewController.h"
+#import "SelectionViewController.h"
+
 
 @interface CalendarViewController ()
 
@@ -25,6 +27,12 @@
 
 - (void)viewDidLoad
 {
+    
+    
+    //Built mutable array to hold gig dates (GigDateClass objects)
+    gigWeekArray = [[NSMutableArray alloc] initWithObjects:@"hello", @"goodbye", @"taco", @"paco", nil];
+    
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -46,6 +54,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CalCell"];
+    
+    if (cell != nil)
+    {
+        cell.textLabel.text = [gigWeekArray objectAtIndex:indexPath.row];
+            
+    }
+    return cell;
     
     /*
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
@@ -83,14 +99,36 @@
      
     return cell;
     */
+}
+
+//Called when we go to the detail view
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CalCell"];
+    SelectionViewController *selectionViewController = segue.destinationViewController;
     
-    if (cell != nil)
+    if (selectionViewController != nil)
     {
-        cell.textLabel.text = @"hello";
+        selectionViewController.dataString = @"here is the data";
     }
-    return nil;
+    /*
+    DetailViewController *detailViewController = segue.destinationViewController;
+    
+    if (detailViewController != nil)
+    {
+        
+        //Cast the "sender" as a TableView Cell
+        UITableViewCell *cell = (UITableViewCell*)sender;
+        NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
+        
+        //Get GigDate object from the array based on the item in the tableview we clicked on
+        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+        
+        //Set the currentGigDate property in detail view to the chosen one
+        detailViewController.currentGigDate = currentGigDate;
+        
+    }
+    */
 }
 
 @end
