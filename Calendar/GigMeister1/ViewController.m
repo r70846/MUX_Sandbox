@@ -28,7 +28,13 @@
 - (void)viewDidLoad
 {
     //Call method to load data into array
-    [self loadGigDates];
+    //[self loadGigDates];
+    
+    
+    //Setup my variable as shared instance of my data store
+    dataStore = [DataStore sharedInstance];
+    
+    //NSLog(@"%@", dataStore.globalArray[2]);
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -38,7 +44,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return [gigDateArray count];
+    return [dataStore.gigDateArray count];
 }
 
 //Set each custom cell to reflect data from the same index of my GigDateClass objects array
@@ -50,7 +56,7 @@
     if (cell != nil)
     {
         
-        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+        GigDateClass *currentGigDate = [dataStore.gigDateArray objectAtIndex:indexPath.row];
  
         
         //Create format for day
@@ -95,7 +101,7 @@
         NSIndexPath *indexPath = [mainTableView indexPathForCell:cell];
 
         //Get GigDate object from the array based on the item in the tableview we clicked on
-        GigDateClass *currentGigDate = [gigDateArray objectAtIndex:indexPath.row];
+        GigDateClass *currentGigDate = [dataStore.gigDateArray objectAtIndex:indexPath.row];
         
         //Set the currentGigDate property in detail view to the chosen one
         detailViewController.currentGigDate = currentGigDate;
@@ -173,7 +179,7 @@
 {
     DetailViewController *detailView = segue.sourceViewController;
     GigDateClass *currentGigDate = detailView.currentGigDate;
-    gigDateArray[currentGigDate.index] = currentGigDate;
+    dataStore.gigDateArray[currentGigDate.index] = currentGigDate;
 }
 
 

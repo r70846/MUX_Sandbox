@@ -58,6 +58,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" id="Sdb-CB-5u9"/>
+                    <connections>
+                        <outlet property="calTableView" destination="XsG-Wr-oIa" id="Atm-Sz-6zl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmp-jH-L9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

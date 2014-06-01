@@ -15,11 +15,18 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "DataStore.h"
+
 
 @interface ViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *mainTableView;    //Table view reference
     NSMutableArray *gigDateArray;          //Reference to main array that will hold my GigDate objects
+    
+    
+    //Variable to hold shared instance of my data store object
+    DataStore *dataStore;
+    
 }
 
 

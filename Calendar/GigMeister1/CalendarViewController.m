@@ -8,7 +8,8 @@
 
 #import "CalendarViewController.h"
 #import "SelectionViewController.h"
-
+#import "GigDateClass.h"
+#import "DataStore.h"
 
 @interface CalendarViewController ()
 
@@ -29,8 +30,13 @@
 {
     
     
+    //Setup my variable as shared instance of my data store
+    dataStore = [DataStore sharedInstance];
+
+    dataStore.globalArray = [[NSMutableArray alloc] initWithObjects:@"hello", @"goodbye", @"taco", @"paco", nil];
+    
     //Built mutable array to hold gig dates (GigDateClass objects)
-    gigWeekArray = [[NSMutableArray alloc] initWithObjects:@"hello", @"goodbye", @"taco", @"paco", nil];
+    //gigWeekArray = [[NSMutableArray alloc] initWithObjects:@"hello", @"goodbye", @"taco", @"paco", nil];
     
     
     [super viewDidLoad];
@@ -58,7 +64,21 @@
     
     if (cell != nil)
     {
-        cell.textLabel.text = [gigWeekArray objectAtIndex:indexPath.row];
+        GigDateClass *currentGigDate = [dataStore.gigDateArray objectAtIndex:indexPath.row];
+        
+        //Create format for date
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        if (dateFormatter != nil)
+        {
+            [dateFormatter setDateFormat:@"M/dd/YY"];
+        }
+        
+        //Build the date into a string based on my day format
+        NSString *dateString = [[NSString alloc] initWithFormat:@"%@", [dateFormatter stringFromDate: currentGigDate.date]];
+        
+        cell.textLabel.text = dateString;
+        //cell.textLabel.text = [gigWeekArray objectAtIndex:indexPath.row];
+        
             
     }
     return cell;
@@ -109,7 +129,13 @@
     
     if (selectionViewController != nil)
     {
-        selectionViewController.dataString = @"here is the data";
+        
+        //Cast the "sender" as a TableView Cell
+        UITableViewCell *cell = (UITableViewCell*)sender;
+        NSIndexPath *indexPath = [calTableView indexPathForCell:cell];
+        
+        
+        selectionViewController.dataString = [gigWeekArray objectAtIndex:indexPath.row];
     }
     /*
     DetailViewController *detailViewController = segue.destinationViewController;
