@@ -229,24 +229,21 @@
 }
 
 
-
-//Set each custom cell to reflect data from the same index of my GigDateClass objects array
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPathTwo:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
-    WeekCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CalCell"];
-    
-    if (cell != nil)
-    {
-        
-        WeekClass *oWeek = [gigWeekArray objectAtIndex:indexPath.row];
-
-        
-        [cell refreshCellWithInfo:oWeek cellIndexPath:indexPath];
-        
-    }
-    return cell;
+    // Return the number of sections.
+    return [gigWeekArray count];
 }
+
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    //return [animalSectionTitles objectAtIndex:section];
+    
+    return @"Section Header";
+}
+
 
 ////////////////////////  Dealing with Section Headers  //////////////////////
 
