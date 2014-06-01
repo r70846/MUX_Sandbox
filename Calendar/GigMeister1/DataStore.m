@@ -21,6 +21,12 @@ static DataStore *_sharedInstance;
         //Built mutable array to hold gig dates (GigDateClass objects)
         _gigDateArray = [[NSMutableArray alloc] init];
         
+        //Built mutable dictionary to hold month titles
+        _monthDict = [[NSMutableDictionary alloc] init];
+
+        //Built mutable array to hold month titles
+        _monthArray= [[NSArray alloc] init];
+        
         
         //DATE & TIME FUNCTIONS ////////////////////////////
         
@@ -29,6 +35,15 @@ static DataStore *_sharedInstance;
         
         // Create calendar object needed to use date components
         NSCalendar *oCalendar = [NSCalendar currentCalendar];
+        
+        //Create format for "Month Year" section header
+        NSDateFormatter *monthHeaderForm = [[NSDateFormatter alloc] init];
+        [monthHeaderForm setDateFormat:@"MMMM yyyy"];
+        
+        //Create format to sort "Month Year" headers by date
+        NSDateFormatter *headerSortForm = [[NSDateFormatter alloc] init];
+        [headerSortForm setDateFormat:@"yyyyMM"];
+        
         
         //Initialize time to noon
         NSString *setTime = @"12:00 PM";
@@ -75,8 +90,48 @@ static DataStore *_sharedInstance;
             oTemp.flag = [UIImage imageNamed:@"white25.png"];
             [_gigDateArray addObject:oTemp];
             
+            
+            //Build the date into a section header based on my date format
+            NSString *sectionHeader = [[NSString alloc] initWithFormat:@"%@", [monthHeaderForm stringFromDate: oDate]];
+            
+            //Build the date into a sortable format
+            NSString *sectionSorter = [[NSString alloc] initWithFormat:@"%@", [headerSortForm stringFromDate: oDate]];
+            
+            [_monthDict setValue:sectionHeader forKey:sectionSorter];
+            
+            /*
+            _monthArray = [_monthDict allKeys];
+            //Log out section header data in process
+            NSLog(@"Month section headers count %d", _monthArray.count);
+            for (int z=0; z < _monthArray.count ; z++)
+            {
+                NSString *sKey = [_monthArray objectAtIndex:z];
+                NSLog(@"Key at index %d = %@", z, sKey);
+            }
+            */
+            
             oDate = [oCalendar dateByAddingComponents:dayComponent toDate:oDate options:0];
         }
+        
+        
+       // _monthArray = [_monthDict allKeys];
+        
+        
+        _monthArray = [[_monthDict allKeys] sortedArrayUsingSelector:@selector(compare:)];
+        
+        
+        NSLog(@"Month section headers count %d", _monthArray.count);
+        for (int z=0; z < _monthArray.count ; z++)
+        {
+            NSString *sKey = [_monthArray objectAtIndex:z];
+            
+            NSString *sTitle = [_monthDict objectForKey:sKey];
+            
+            NSLog(@"Key at index %d = %@", z, sTitle);
+        }
+        
+        
+        
 	}
 	return self;
 }

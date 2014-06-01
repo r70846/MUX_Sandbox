@@ -43,7 +43,8 @@
     //Load Each Week
     [self loadWeeks];
 
-    [self printWeeks];
+    //Load out contents of gigWeekArray
+    //[self printWeeks];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -125,61 +126,7 @@
     [gigWeekArray addObject:aTemp];
 }
 
-/*
- 
- 
-// NSMutableArray *objects = [NSMutableArray arrayWithCapacity: [names count];
- 
- 
-- (void)loadWeeksTwo
-{
 
-    
-    WeekClass *oWeek = [[WeekClass alloc] init];
-    
-    //LOOP ALL DATES IN DATASTORE
-    for (int x=0; x < dataStore.gigDateArray.count ; x++)
-    {
-        
-        //Get the current gigDate object
-        GigDateClass *currentGigDate = [dataStore.gigDateArray objectAtIndex:x];
-        
-        
-        //GET THE "MONTH YEAR"
-        NSDateFormatter *monthYrFormatter = [[NSDateFormatter alloc] init];
-        if (monthYrFormatter != nil)
-        {
-            [monthYrFormatter setDateFormat:@"MMM yyyy"];
-        }
-        
-        //NSString *strMonthYear = [[NSString alloc] initWithFormat:@"%@", [monthYrFormatter stringFromDate:currentGigDate.date]];
-        
-        //GET THE DAY
-        NSDateFormatter *iDayFormatter = [[NSDateFormatter alloc] init];
-        if (iDayFormatter != nil)
-        {
-            [iDayFormatter setDateFormat:@"e"];
-        }
-        int iDay = [[[NSString alloc] initWithFormat:@"%@", [iDayFormatter stringFromDate: currentGigDate.date]] intValue];
-        
-        //Place the day in the week (save index of currentGigDate)
-        oWeek.days[iDay - 1] = [NSNumber numberWithInt:x];
-        
-        //If week is done, save current week in the Week array
-        if(iDay == 7)
-        {
-            [gigWeekArray addObject:oWeek];
-            oWeek = [[WeekClass alloc] init];
-            NSLog(@"Made it here: %d", x);
-        }
-        else
-        {
-            NSLog(@"Made it here: %d", x);
-        }
-    }
-}
-*/
- 
  
 - (void)printWeeks
 {
@@ -207,6 +154,7 @@
 {
     
     return [gigWeekArray count];
+    
 }
 
 
@@ -232,16 +180,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [gigWeekArray count];
+    return [dataStore.monthArray count];
 }
-
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    //return [animalSectionTitles objectAtIndex:section];
-    
-    return @"Section Header";
+    return [dataStore.monthArray objectAtIndex:section];
 }
 
 
