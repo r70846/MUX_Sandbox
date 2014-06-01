@@ -111,6 +111,8 @@
 }
 
 //Function to load hard coded data into array of BandMate objects
+/*  Moved to DataStore
+ 
 - (void)loadGigDates
 {
     //Built mutable array to hold gig dates (GigDateClass objects)
@@ -174,6 +176,8 @@
     }
     
 }
+*/
+
 
 -(IBAction)done:(UIStoryboardSegue*)segue
 {

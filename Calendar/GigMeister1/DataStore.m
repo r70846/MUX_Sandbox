@@ -54,7 +54,7 @@ static DataStore *_sharedInstance;
         
         
         //Load Array with GigDate Objects
-        for (int x=0; x < 20 ; x++)
+        for (int x=0; x < 100 ; x++)
         {
             
             //Create temporary GigDate object to load array

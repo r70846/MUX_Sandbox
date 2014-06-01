@@ -18,6 +18,5 @@
 
 
 @property (nonatomic, strong)NSMutableArray *gigDateArray;
-@property (nonatomic, strong)NSMutableArray *globalArray;
 
 @end

@@ -35,6 +35,8 @@
 		607D91CE193A55950016CAFE /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607D91CD193A55950016CAFE /* CalendarViewController.m */; };
 		607D91D1193A8A970016CAFE /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607D91D0193A8A970016CAFE /* SelectionViewController.m */; };
 		607D91D4193A96580016CAFE /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 607D91D3193A96580016CAFE /* DataStore.m */; };
+		607D91D7193AAA350016CAFE /* WeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 607D91D6193AAA350016CAFE /* WeekCell.m */; };
+		607D91DA193B1BDA0016CAFE /* WeekClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 607D91D9193B1BDA0016CAFE /* WeekClass.m */; };
 		607FFDC419298627007D3D70 /* brand.gif in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC319298627007D3D70 /* brand.gif */; };
 		607FFDC619298700007D3D70 /* brandr.gif in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC5192986FF007D3D70 /* brandr.gif */; };
 		607FFDC8192988E9007D3D70 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 607FFDC7192988E9007D3D70 /* circle.png */; };
@@ -91,6 +93,10 @@
 		607D91D0193A8A970016CAFE /* SelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionViewController.m; sourceTree = "<group>"; };
 		607D91D2193A96580016CAFE /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
 		607D91D3193A96580016CAFE /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
+		607D91D5193AAA350016CAFE /* WeekCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekCell.h; sourceTree = "<group>"; };
+		607D91D6193AAA350016CAFE /* WeekCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekCell.m; sourceTree = "<group>"; };
+		607D91D8193B1BDA0016CAFE /* WeekClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekClass.h; sourceTree = "<group>"; };
+		607D91D9193B1BDA0016CAFE /* WeekClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekClass.m; sourceTree = "<group>"; };
 		607FFDC319298627007D3D70 /* brand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brand.gif; sourceTree = "<group>"; };
 		607FFDC5192986FF007D3D70 /* brandr.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = brandr.gif; sourceTree = "<group>"; };
 		607FFDC7192988E9007D3D70 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
@@ -160,12 +166,16 @@
 				601AC51A192807E100AEF8B0 /* AppDelegate.h */,
 				601AC51B192807E100AEF8B0 /* AppDelegate.m */,
 				601AC51D192807E100AEF8B0 /* Main.storyboard */,
+				607D91D5193AAA350016CAFE /* WeekCell.h */,
+				607D91D6193AAA350016CAFE /* WeekCell.m */,
 				607D91CF193A8A970016CAFE /* SelectionViewController.h */,
 				607D91D0193A8A970016CAFE /* SelectionViewController.m */,
 				607D91CC193A55950016CAFE /* CalendarViewController.h */,
 				607D91CD193A55950016CAFE /* CalendarViewController.m */,
 				607D91D2193A96580016CAFE /* DataStore.h */,
 				607D91D3193A96580016CAFE /* DataStore.m */,
+				607D91D8193B1BDA0016CAFE /* WeekClass.h */,
+				607D91D9193B1BDA0016CAFE /* WeekClass.m */,
 				605E1C541931DE4A007B0212 /* TimeViewController.h */,
 				605E1C551931DE4A007B0212 /* TimeViewController.m */,
 				605E1C521931BF45007B0212 /* keyback.png */,
@@ -328,11 +338,13 @@
 				601AC54519281D3300AEF8B0 /* GigDateClass.m in Sources */,
 				601AC5481928269F00AEF8B0 /* CustomCell.m in Sources */,
 				601AC51C192807E100AEF8B0 /* AppDelegate.m in Sources */,
+				607D91DA193B1BDA0016CAFE /* WeekClass.m in Sources */,
 				607D91CE193A55950016CAFE /* CalendarViewController.m in Sources */,
 				607D91D4193A96580016CAFE /* DataStore.m in Sources */,
 				607D91D1193A8A970016CAFE /* SelectionViewController.m in Sources */,
 				601AC518192807E100AEF8B0 /* main.m in Sources */,
 				605E1C561931DE4A007B0212 /* TimeViewController.m in Sources */,
+				607D91D7193AAA350016CAFE /* WeekCell.m in Sources */,
 				601AC5421928120300AEF8B0 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

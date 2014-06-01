@@ -12,17 +12,24 @@
 @interface CalendarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *calTableView;    //Table view reference
+    
+    
     NSMutableArray *gigWeekArray;          //Reference to main array that will hold my GigDate objects
     
     //Variable to hold shared instance of my data store object
     DataStore *dataStore;
-    
+      
 }
 
 
+- (void)loadWeeks;
 
+- (void)printWeeks;
 
+-(void)addWeek:(NSMutableArray*)aData;
 
+//-(void)addWeek:(int*)aData;
 
+//(IBAction)onClick:(id)sender;
 
 @end
