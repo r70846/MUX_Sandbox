@@ -26,7 +26,7 @@
 
 - (void)printWeeks;
 
--(void)addWeek:(NSMutableArray*)aData;
+-(void)addWeek:(NSMutableArray*)aData sectionHeader:(NSString*)sectionHeader;
 
 //-(void)addWeek:(int*)aData;
 

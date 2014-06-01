@@ -53,7 +53,7 @@
 
 - (void)loadWeeks
 {
-    //INIT SINGLE WEEK ARRAY
+    //INIT SINGLE WEEK ARRAY ((DO I NEED THIS??))
     NSMutableArray *aWeek = [[NSMutableArray alloc] init];
     for (int i=0; i < 7 ; i++)
     {
@@ -61,15 +61,16 @@
         //[aWeek addObject:nil];
     }
     
-    //LOOP ALL DATES IN DATASTORE
+    //LOOP ALL DATES IN DATASTORE gigDateArray
     for (int x=0; x < dataStore.gigDateArray.count ; x++)
     {
-        
-        
         
         //Get the current gigDate object
         GigDateClass *currentGigDate = [dataStore.gigDateArray objectAtIndex:x];
         
+        
+        
+        /*
         
         //GET THE "MONTH YEAR"
         NSDateFormatter *monthYrFormatter = [[NSDateFormatter alloc] init];
@@ -77,8 +78,13 @@
         {
             [monthYrFormatter setDateFormat:@"MMM yyyy"];
         }
-        
         //NSString *strMonthYear = [[NSString alloc] initWithFormat:@"%@", [monthYrFormatter stringFromDate:currentGigDate.date]];
+        */
+        
+        //Create format to sort "Month Year" headers by date
+        NSDateFormatter *headerSortForm = [[NSDateFormatter alloc] init];
+        [headerSortForm setDateFormat:@"yyyyMM"];
+        
         
         //GET THE DAY
         NSDateFormatter *iDayFormatter = [[NSDateFormatter alloc] init];
@@ -95,9 +101,16 @@
         if(iDay == 7)
         {
             //[gigWeekArray addObject:aWeek];
-            [self addWeek:aWeek];
+            //Need to add this aWeek to my dataStore.calendarDict
             
-            //INIT SINGLE WEEK ARRAY
+            
+            //Build the date into a sortable format
+            NSString *sectionHeader = [[NSString alloc] initWithFormat:@"%@", [headerSortForm stringFromDate: currentGigDate.date]];
+            
+            //Pass the completed 'week' ans section header to support function
+            [self addWeek:aWeek sectionHeader:sectionHeader];
+            
+            //INIT SINGLE WEEK ARRAY ((DO I NEED THIS??))
             NSMutableArray *aWeek = [[NSMutableArray alloc] init];
             for (int i=0; i < 7 ; i++)
             {
@@ -108,7 +121,7 @@
     }
 }
 
--(void)addWeek:(NSMutableArray*)aData
+-(void)addWeek:(NSMutableArray*)aData sectionHeader:(NSString*)sectionHeader
 {
     //NSMutableArray *aTemp = aData;
     
@@ -122,12 +135,40 @@
         //[aWeek addObject:nil];
     }
     
-                             
+    //Pull array of 'aWeeks' from global calendar dictionary
+    NSMutableArray *sectionArray = [dataStore.calendarDict objectForKey:sectionHeader];
+    
+    //Add new week to array of 'aWeeks'
+    [sectionArray addObject:aTemp];
+
+    //Overwrite expanded 'aWeeks' array back to calendarDict
+    [dataStore.calendarDict setValue:sectionArray forKey:sectionHeader];
+    
+    //Legacy code - add to my gigWeekArray - hopefully will not use this!
     [gigWeekArray addObject:aTemp];
 }
 
 
- 
+/*
+-(void)addWeek:(NSMutableArray*)aData sSection:(NSString*)sSection
+{
+    //NSMutableArray *aTemp = aData;
+    
+    NSMutableArray *aTemp = [NSMutableArray arrayWithCapacity: [aData count]];
+    for (int i=0; i < 7 ; i++)
+    {
+        //[aTemp addObject:[NSNumber numberWithInteger:[aData objectAtIndex:i] ]];
+        
+        [aTemp addObject:[aData objectAtIndex:i]];
+        
+        //[aWeek addObject:nil];
+    }
+    
+    
+    [gigWeekArray addObject:aTemp];
+}
+*/
+
 - (void)printWeeks
 {
     //LOOP ALL DATES IN DATASTORE
@@ -142,6 +183,7 @@
     }
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -190,16 +232,19 @@
 {
     // Return the number of rows in the section.
     NSString *sectionTitle = [dataStore.sectionTitleArray objectAtIndex:section];
-    NSArray *sectionMembers = [dataStore.sectionTitleDict objectForKey:sectionTitle];
-    //return [sectionMembers count];
+    NSArray *sectionArray = [dataStore.calendarDict objectForKey:sectionTitle];
+    //return [sectionArray count];
     
-    return [gigWeekArray count];
+    NSLog(@"Members in the %@ section: %d", sectionTitle, [sectionArray count]);
+    
+    //return [gigWeekArray count];
+    return [sectionArray count];
     
 }
 
 
 // 4.	cellForRowAtIndexPath: //Set each custom cell
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -216,6 +261,32 @@
     }
     return cell;
 }
+*/
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeekCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CalCell"];
+
+    if (cell != nil)
+    {
+        // Configure the cell...
+        ////NSString *sectionTitle = [animalSectionTitles objectAtIndex:indexPath.section];
+        NSString *sectionTitle = [dataStore.sectionTitleArray objectAtIndex:indexPath.section];
+    
+        //NSArray *sectionAnimals = [animals objectForKey:sectionTitle];
+        NSArray *sectionArray= [dataStore.calendarDict objectForKey:sectionTitle];
+    
+        NSMutableArray *aWeek = [sectionArray objectAtIndex:indexPath.row];
+        
+        //NSMutableArray *aWeek = [gigWeekArray objectAtIndex:indexPath.row];
+        
+        
+        [cell refreshCellWithInfo:aWeek cellIndexPath:indexPath];
+    }
+    return cell;
+}
+
 
 
 //5.	sectionIndexTitlesForTableView:

@@ -19,5 +19,7 @@
 
 @property (nonatomic, strong)NSMutableArray *gigDateArray;
 @property (nonatomic, strong)NSMutableDictionary *sectionTitleDict;
+@property (nonatomic, strong)NSMutableDictionary *calendarDict;
 @property (nonatomic, strong)NSArray *sectionTitleArray;
 @end
+

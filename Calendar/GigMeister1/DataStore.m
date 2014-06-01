@@ -24,6 +24,9 @@ static DataStore *_sharedInstance;
         //Built mutable dictionary to hold month titles
         _sectionTitleDict = [[NSMutableDictionary alloc] init];
 
+        //Built mutable dictionary to hold month titles
+        _calendarDict = [[NSMutableDictionary alloc] init];
+        
         //Built mutable array to hold month titles
         _sectionTitleArray= [[NSArray alloc] init];
         
@@ -97,29 +100,32 @@ static DataStore *_sharedInstance;
             //Build the date into a sortable format
             NSString *sectionSorter = [[NSString alloc] initWithFormat:@"%@", [headerSortForm stringFromDate: oDate]];
             
+            //Add to the dictionary (if its new or simply overwrite repeated key)
             [_sectionTitleDict setValue:sectionHeader forKey:sectionSorter];
-            
-            /*
-            _monthArray = [_monthDict allKeys];
-            //Log out section header data in process
-            NSLog(@"Month section headers count %d", _monthArray.count);
-            for (int z=0; z < _monthArray.count ; z++)
-            {
-                NSString *sKey = [_monthArray objectAtIndex:z];
-                NSLog(@"Key at index %d = %@", z, sKey);
-            }
-            */
             
             oDate = [oCalendar dateByAddingComponents:dayComponent toDate:oDate options:0];
         }
         
-        
-       // _monthArray = [_monthDict allKeys];
-        
-        
+        //Sort the dictionary keys and dump into array
         _sectionTitleArray = [[_sectionTitleDict allKeys] sortedArrayUsingSelector:@selector(compare:)];
         
         
+        for (int z=0; z < _sectionTitleArray.count ; z++)
+        {
+            NSString *sKey = [_sectionTitleArray objectAtIndex:z];
+
+            NSMutableArray* aTemp = [[NSMutableArray alloc] initWithCapacity:1];
+            
+            //Add keys to the new dictionary to build calendar
+            [_calendarDict setValue:aTemp forKey:sKey];
+        }
+        
+        
+        
+        ///////////////////////////////////////////////////////////////
+        // DEBUG LOGGING
+        ///////////////////////////////////////////////////////////////
+        /*
         NSLog(@"Month section headers count %d", _sectionTitleArray.count);
         for (int z=0; z < _sectionTitleArray.count ; z++)
         {
@@ -129,7 +135,8 @@ static DataStore *_sharedInstance;
             
             NSLog(@"Key at index %d = %@", z, sTitle);
         }
-        
+        */
+        //////////////////////////////////////////////////////////
         
         
 	}
