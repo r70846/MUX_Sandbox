@@ -18,6 +18,6 @@
 
 
 @property (nonatomic, strong)NSMutableArray *gigDateArray;
-@property (nonatomic, strong)NSMutableDictionary *monthDict;
-@property (nonatomic, strong)NSArray *monthArray;
+@property (nonatomic, strong)NSMutableDictionary *sectionTitleDict;
+@property (nonatomic, strong)NSArray *sectionTitleArray;
 @end

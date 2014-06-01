@@ -22,10 +22,10 @@ static DataStore *_sharedInstance;
         _gigDateArray = [[NSMutableArray alloc] init];
         
         //Built mutable dictionary to hold month titles
-        _monthDict = [[NSMutableDictionary alloc] init];
+        _sectionTitleDict = [[NSMutableDictionary alloc] init];
 
         //Built mutable array to hold month titles
-        _monthArray= [[NSArray alloc] init];
+        _sectionTitleArray= [[NSArray alloc] init];
         
         
         //DATE & TIME FUNCTIONS ////////////////////////////
@@ -97,7 +97,7 @@ static DataStore *_sharedInstance;
             //Build the date into a sortable format
             NSString *sectionSorter = [[NSString alloc] initWithFormat:@"%@", [headerSortForm stringFromDate: oDate]];
             
-            [_monthDict setValue:sectionHeader forKey:sectionSorter];
+            [_sectionTitleDict setValue:sectionHeader forKey:sectionSorter];
             
             /*
             _monthArray = [_monthDict allKeys];
@@ -117,15 +117,15 @@ static DataStore *_sharedInstance;
        // _monthArray = [_monthDict allKeys];
         
         
-        _monthArray = [[_monthDict allKeys] sortedArrayUsingSelector:@selector(compare:)];
+        _sectionTitleArray = [[_sectionTitleDict allKeys] sortedArrayUsingSelector:@selector(compare:)];
         
         
-        NSLog(@"Month section headers count %d", _monthArray.count);
-        for (int z=0; z < _monthArray.count ; z++)
+        NSLog(@"Month section headers count %d", _sectionTitleArray.count);
+        for (int z=0; z < _sectionTitleArray.count ; z++)
         {
-            NSString *sKey = [_monthArray objectAtIndex:z];
+            NSString *sKey = [_sectionTitleArray objectAtIndex:z];
             
-            NSString *sTitle = [_monthDict objectForKey:sKey];
+            NSString *sTitle = [_sectionTitleDict objectForKey:sKey];
             
             NSLog(@"Key at index %d = %@", z, sTitle);
         }

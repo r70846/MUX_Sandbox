@@ -149,16 +149,57 @@
     // Dispose of any resources that can be recreated.
 }
 
-//Number of rows in table will equal the number of BandMateClass objects in my data array
+
+/*
+ 1.	numberOfSectionsInTableView:
+ 
+ 2.	titleForHeaderInSection:
+ 
+ 3.	numberOfRowsInSection:
+ 
+ 4.	cellForRowAtIndexPath:
+ 
+ 5.	sectionIndexTitlesForTableView:
+ 
+ 6.	sectionForSectionIndexTitle:
+ 
+ */
+
+
+// 1.	numberOfSectionsInTableView:
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return [dataStore.sectionTitleArray count];
+}
+
+// 2.	titleForHeaderInSection:
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    NSString *sKey = [dataStore.sectionTitleArray objectAtIndex:section];
+    
+    return [dataStore.sectionTitleDict objectForKey:sKey];
+}
+
+//3.	numberOfRowsInSection: //we have to tell the table view the number of rows for a particular section
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // Return the number of rows in the section.
+    NSString *sectionTitle = [dataStore.sectionTitleArray objectAtIndex:section];
+    NSArray *sectionMembers = [dataStore.sectionTitleDict objectForKey:sectionTitle];
+    //return [sectionMembers count];
     
     return [gigWeekArray count];
     
 }
 
 
-//Set each custom cell to reflect data from the same index of my GigDateClass objects array
+// 4.	cellForRowAtIndexPath: //Set each custom cell
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -177,17 +218,12 @@
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return [dataStore.monthArray count];
-}
+//5.	sectionIndexTitlesForTableView:
+
+//6.	sectionForSectionIndexTitle:
 
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [dataStore.monthArray objectAtIndex:section];
-}
+
 
 
 ////////////////////////  Dealing with Section Headers  //////////////////////
