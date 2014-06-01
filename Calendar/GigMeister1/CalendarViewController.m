@@ -10,7 +10,6 @@
 #import "SelectionViewController.h"
 #import "GigDateClass.h"
 #import "DataStore.h"
-#import "WeekClass.h"
 #import "WeekCell.h"
 
 
@@ -68,18 +67,6 @@
         //Get the current gigDate object
         GigDateClass *currentGigDate = [dataStore.gigDateArray objectAtIndex:x];
         
-        
-        
-        /*
-        
-        //GET THE "MONTH YEAR"
-        NSDateFormatter *monthYrFormatter = [[NSDateFormatter alloc] init];
-        if (monthYrFormatter != nil)
-        {
-            [monthYrFormatter setDateFormat:@"MMM yyyy"];
-        }
-        //NSString *strMonthYear = [[NSString alloc] initWithFormat:@"%@", [monthYrFormatter stringFromDate:currentGigDate.date]];
-        */
         
         //Create format to sort "Month Year" headers by date
         NSDateFormatter *headerSortForm = [[NSDateFormatter alloc] init];
@@ -149,26 +136,6 @@
 }
 
 
-/*
--(void)addWeek:(NSMutableArray*)aData sSection:(NSString*)sSection
-{
-    //NSMutableArray *aTemp = aData;
-    
-    NSMutableArray *aTemp = [NSMutableArray arrayWithCapacity: [aData count]];
-    for (int i=0; i < 7 ; i++)
-    {
-        //[aTemp addObject:[NSNumber numberWithInteger:[aData objectAtIndex:i] ]];
-        
-        [aTemp addObject:[aData objectAtIndex:i]];
-        
-        //[aWeek addObject:nil];
-    }
-    
-    
-    [gigWeekArray addObject:aTemp];
-}
-*/
-
 - (void)printWeeks
 {
     //LOOP ALL DATES IN DATASTORE
@@ -193,6 +160,8 @@
 
 
 /*
+ Steps to set up a scrolling index
+ 
  1.	numberOfSectionsInTableView:
  
  2.	titleForHeaderInSection:
@@ -244,26 +213,6 @@
 
 
 // 4.	cellForRowAtIndexPath: //Set each custom cell
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    WeekCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CalCell"];
-    
-    if (cell != nil)
-    {
-        
-        NSMutableArray *aWeek = [gigWeekArray objectAtIndex:indexPath.row];
-        
-        
-        [cell refreshCellWithInfo:aWeek cellIndexPath:indexPath];
-        
-    }
-    return cell;
-}
-*/
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WeekCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CalCell"];
