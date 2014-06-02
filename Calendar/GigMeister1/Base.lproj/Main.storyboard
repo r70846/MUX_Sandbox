@@ -137,11 +137,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brandr.gif" translatesAutoresizingMaskIntoConstraints="NO" id="gab-4B-a9t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand-R.png" translatesAutoresizingMaskIntoConstraints="NO" id="gab-4B-a9t">
                                 <rect key="frame" x="219" y="32" width="56" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand.gif" translatesAutoresizingMaskIntoConstraints="NO" id="mqI-D9-9Op">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand-L.png" translatesAutoresizingMaskIntoConstraints="NO" id="mqI-D9-9Op">
                                 <rect key="frame" x="46" y="32" width="56" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -266,11 +266,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand.gif" translatesAutoresizingMaskIntoConstraints="NO" id="qHg-We-yNy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand-L.png" translatesAutoresizingMaskIntoConstraints="NO" id="qHg-We-yNy">
                                 <rect key="frame" x="46" y="32" width="56" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brandr.gif" translatesAutoresizingMaskIntoConstraints="NO" id="VTF-cu-Y5h">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand-R.png" translatesAutoresizingMaskIntoConstraints="NO" id="VTF-cu-Y5h">
                                 <rect key="frame" x="219" y="32" width="56" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -332,11 +332,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand.gif" translatesAutoresizingMaskIntoConstraints="NO" id="8SS-0g-HV9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand-L.png" translatesAutoresizingMaskIntoConstraints="NO" id="8SS-0g-HV9">
                                 <rect key="frame" x="46" y="32" width="56" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brandr.gif" translatesAutoresizingMaskIntoConstraints="NO" id="NV3-Ja-U3s">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand-R.png" translatesAutoresizingMaskIntoConstraints="NO" id="NV3-Ja-U3s">
                                 <rect key="frame" x="219" y="32" width="56" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -739,8 +739,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </scene>
     </scenes>
     <resources>
-        <image name="brand.gif" width="190" height="87"/>
-        <image name="brandr.gif" width="190" height="87"/>
+        <image name="brand-L.png" width="190" height="87"/>
+        <image name="brand-R.png" width="190" height="87"/>
         <image name="circle.png" width="25" height="25"/>
         <image name="clear40.png" width="40" height="30"/>
         <image name="keyback.png" width="80" height="30"/>

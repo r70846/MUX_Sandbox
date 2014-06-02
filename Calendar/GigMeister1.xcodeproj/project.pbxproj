@@ -43,6 +43,8 @@
 		60F8F739193BF1EF001CBFBF /* green40.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F8F738193BF1EF001CBFBF /* green40.png */; };
 		60F8F73B193BF203001CBFBF /* clear40.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F8F73A193BF203001CBFBF /* clear40.png */; };
 		60F8F73D193BF21D001CBFBF /* white40.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F8F73C193BF21D001CBFBF /* white40.png */; };
+		60F8F740193C0149001CBFBF /* brand-L.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F8F73E193C0149001CBFBF /* brand-L.png */; };
+		60F8F741193C0149001CBFBF /* brand-R.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F8F73F193C0149001CBFBF /* brand-R.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		60F8F738193BF1EF001CBFBF /* green40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green40.png; sourceTree = "<group>"; };
 		60F8F73A193BF203001CBFBF /* clear40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear40.png; sourceTree = "<group>"; };
 		60F8F73C193BF21D001CBFBF /* white40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white40.png; sourceTree = "<group>"; };
+		60F8F73E193C0149001CBFBF /* brand-L.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brand-L.png"; sourceTree = "<group>"; };
+		60F8F73F193C0149001CBFBF /* brand-R.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brand-R.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 				601AC51A192807E100AEF8B0 /* AppDelegate.h */,
 				601AC51B192807E100AEF8B0 /* AppDelegate.m */,
 				601AC51D192807E100AEF8B0 /* Main.storyboard */,
+				60F8F73E193C0149001CBFBF /* brand-L.png */,
+				60F8F73F193C0149001CBFBF /* brand-R.png */,
 				60F8F73C193BF21D001CBFBF /* white40.png */,
 				60F8F73A193BF203001CBFBF /* clear40.png */,
 				60F8F738193BF1EF001CBFBF /* green40.png */,
@@ -315,11 +321,13 @@
 				601AC54F19282FF400AEF8B0 /* clear25.png in Resources */,
 				60F8F739193BF1EF001CBFBF /* green40.png in Resources */,
 				60F8F73D193BF21D001CBFBF /* white40.png in Resources */,
+				60F8F741193C0149001CBFBF /* brand-R.png in Resources */,
 				607FFDC8192988E9007D3D70 /* circle.png in Resources */,
 				607FFDC419298627007D3D70 /* brand.gif in Resources */,
 				601AC5581928343D00AEF8B0 /* white25.png in Resources */,
 				601AC524192807E100AEF8B0 /* Images.xcassets in Resources */,
 				601AC516192807E100AEF8B0 /* InfoPlist.strings in Resources */,
+				60F8F740193C0149001CBFBF /* brand-L.png in Resources */,
 				60F8F73B193BF203001CBFBF /* clear40.png in Resources */,
 				60F8F737193BF1D4001CBFBF /* grey40.png in Resources */,
 				601AC55019282FF400AEF8B0 /* gold25.png in Resources */,
