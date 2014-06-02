@@ -8,7 +8,7 @@
 /*
  
  Russ Gaspard
- Week 3
+ Week 4
  Mobile Development
  MUX 1405
  
@@ -106,7 +106,7 @@
         switchConfirmed.on = YES;
     }
     
-    //Fill Text Fileds
+    //Fill Text Fields
     venueName.text = self.venueNameString;
     venueAddress.text = self.venueAddressString;
     contactName.text = self.contactNameString;
@@ -223,10 +223,10 @@
         
         //Build the start into a string based on my time format
         self.startstring = [[NSString alloc] initWithFormat:@"%@", [timeFormatter stringFromDate: self.starttime]];
-        
     }
     else
     {
+        
     }
     
 }

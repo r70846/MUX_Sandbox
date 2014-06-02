@@ -5,6 +5,14 @@
 //  Created by Russell Gaspard on 5/31/14.
 //  Copyright (c) 2014 Russell Gaspard. All rights reserved.
 //
+/*
+ 
+ Russ Gaspard
+ Week 4
+ Mobile Development
+ MUX 1405
+ 
+ */
 
 #import "SelectionViewController.h"
 

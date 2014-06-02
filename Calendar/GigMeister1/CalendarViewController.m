@@ -5,6 +5,14 @@
 //  Created by Russell Gaspard on 5/31/14.
 //  Copyright (c) 2014 Russell Gaspard. All rights reserved.
 //
+/*
+ 
+ Russ Gaspard
+ Week 4
+ Mobile Development
+ MUX 1405
+ 
+ */
 
 #import "CalendarViewController.h"
 #import "SelectionViewController.h"
@@ -37,18 +45,19 @@
 
     
     //INIT WEEKS ARRAY
-    gigWeekArray = [[NSMutableArray alloc] init];
+    //gigWeekArray = [[NSMutableArray alloc] init];
     
     //Load Each Week
     [self loadWeeks];
-
-    //Load out contents of gigWeekArray
-    //[self printWeeks];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self->calTableView reloadData]; // to reload selected cell
+}
 
 - (void)loadWeeks
 {
@@ -132,23 +141,7 @@
     [dataStore.calendarDict setValue:sectionArray forKey:sectionHeader];
     
     //Legacy code - add to my gigWeekArray - hopefully will not use this!
-    [gigWeekArray addObject:aTemp];
-}
-
-
-- (void)printWeeks
-{
-    //LOOP ALL DATES IN DATASTORE
-    for (int y=0; y < gigWeekArray.count ; y++)
-    {
-        NSMutableArray *currentWeek = [gigWeekArray objectAtIndex:y];
-        for (int z=0; z < 7 ; z++)
-        {
-           int iTmp = [[currentWeek objectAtIndex:z] integerValue];
-            NSLog(@"Week: %d, Index %d", y, iTmp);
-        }
-    }
-    
+    //[gigWeekArray addObject:aTemp];
 }
 
 
@@ -299,11 +292,11 @@
     {
         
         //Cast the "sender" as a TableView Cell
-        UITableViewCell *cell = (UITableViewCell*)sender;
-        NSIndexPath *indexPath = [calTableView indexPathForCell:cell];
+        //UITableViewCell *cell = (UITableViewCell*)sender;
+        //NSIndexPath *indexPath = [calTableView indexPathForCell:cell];
         
         
-        selectionViewController.dataString = [gigWeekArray objectAtIndex:indexPath.row];
+        //selectionViewController.dataString = [gigWeekArray objectAtIndex:indexPath.row];
     }
 }
 

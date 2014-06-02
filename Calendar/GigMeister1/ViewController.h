@@ -8,7 +8,7 @@
 /*
  
  Russ Gaspard
- Week 3
+ Week 4
  Mobile Development
  MUX 1405
  
@@ -21,8 +21,6 @@
 @interface ViewController : UIViewController  <UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *mainTableView;    //Table view reference
-    NSMutableArray *gigDateArray;          //Reference to main array that will hold my GigDate objects
-    
     
     //Variable to hold shared instance of my data store object
     DataStore *dataStore;
