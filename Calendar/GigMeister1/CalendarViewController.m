@@ -195,9 +195,9 @@
     // Return the number of rows in the section.
     NSString *sectionTitle = [dataStore.sectionTitleArray objectAtIndex:section];
     NSArray *sectionArray = [dataStore.calendarDict objectForKey:sectionTitle];
-    //return [sectionArray count];
     
-    NSLog(@"Members in the %@ section: %d", sectionTitle, [sectionArray count]);
+    //Debug Code
+    //NSLog(@"Members in the %@ section: %d", sectionTitle, [sectionArray count]);
     
     //return [gigWeekArray count];
     return [sectionArray count];
@@ -236,53 +236,7 @@
 //6.	sectionForSectionIndexTitle:
 
 
-
-
-
-////////////////////////  Dealing with Section Headers  //////////////////////
-
-/*
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return [animalSectionTitles count];
-}
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [animalSectionTitles objectAtIndex:section];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    NSString *sectionTitle = [animalSectionTitles objectAtIndex:section];
-    NSArray *sectionAnimals = [animals objectForKey:sectionTitle];
-    return [sectionAnimals count];
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    NSString *sectionTitle = [animalSectionTitles objectAtIndex:indexPath.section];
-    NSArray *sectionAnimals = [animals objectForKey:sectionTitle];
-    NSString *animal = [sectionAnimals objectAtIndex:indexPath.row];
-    cell.textLabel.text = animal;
-    cell.imageView.image = [UIImage imageNamed:[self getImageFilename:animal]];
-    
-    return cell;
-}
-
-*/
-////////////////////////  Dealing with Section Headers  //////////////////////
-
-
-//Called when we go to the detail view
+//Called if we go to a detail view
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     

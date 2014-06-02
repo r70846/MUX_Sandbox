@@ -159,36 +159,6 @@
             </objects>
             <point key="canvasLocation" x="2864" y="-996"/>
         </scene>
-        <!--Selection View Controller-->
-        <scene sceneID="SCt-uM-3p7">
-            <objects>
-                <viewController id="OId-cc-Pa8" customClass="SelectionViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dux-al-6nz"/>
-                        <viewControllerLayoutGuide type="bottom" id="XF0-2W-gS6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="N9o-Kx-oGp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhN-Xn-RDU">
-                                <rect key="frame" x="32" y="119" width="255" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="dataLabel" destination="nhN-Xn-RDU" id="kyd-9l-rwY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ur8-AV-UNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3354" y="-993"/>
-        </scene>
         <!--View Controller - Gig Meister-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -728,8 +698,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" red="0.72994080549999996" green="0.82560629900000004" blue="0.88990319289999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cLe-JQ-lrm" kind="relationship" relationship="viewControllers" id="yej-uL-JfA"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="cES-SY-dPU"/>
+                        <segue destination="cLe-JQ-lrm" kind="relationship" relationship="viewControllers" id="yej-uL-JfA"/>
                         <segue destination="vBU-Ue-XIy" kind="relationship" relationship="viewControllers" id="Meo-1M-A2i"/>
                     </connections>
                 </tabBarController>
