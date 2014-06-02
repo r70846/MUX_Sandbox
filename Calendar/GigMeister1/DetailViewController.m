@@ -168,6 +168,11 @@
                 self.currentGigDate.confirmed = true;
                 self.currentGigDate.flag = [UIImage imageNamed:@"green25.png"];
             }
+            else
+            {
+                self.currentGigDate.confirmed = false;
+                self.currentGigDate.flag = [UIImage imageNamed:@"grey25.png"];
+            }
         }
         
         [self performSegueWithIdentifier:@"unwindToMainView" sender:sender];
